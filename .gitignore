@@ -1,0 +1,6 @@
+# Datos generados en el servidor (leads del formulario) — NUNCA commitear
+registros.csv
+
+# Basura de sistema
+.DS_Store
+Thumbs.db
