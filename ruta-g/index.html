@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ruta G | Cotiza y agenda la mantención de tu auto online</title>
+  <meta name="description" content="Ruta G compara cotizaciones de talleres mecánicos verificados y te deja agendar tu mantención en minutos. Gratis para conductores, sin descargas y sin llamadas.">
+  <meta name="keywords" content="mantencion auto, cotizar mantencion, taller mecanico santiago, cambio de aceite, agendar taller, ruta g, lubricentro">
+  <meta name="author" content="Axiom Labs SpA">
+
+  <link rel="canonical" href="https://axiomlabs.cl/ruta-g/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://axiomlabs.cl/ruta-g/">
+  <meta property="og:title" content="Ruta G | La mantención de tu auto, sin llamadas ni vueltas">
+  <meta property="og:description" content="Compara cotizaciones de talleres verificados y agenda online. Gratis, sin descargas.">
+  <meta property="og:image" content="https://axiomlabs.cl/assets/ruta_g_pwa_mockup.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Ruta G | Cotiza y agenda la mantención de tu auto">
+  <meta property="twitter:description" content="Compara cotizaciones de talleres verificados y agenda online. Gratis, sin descargas.">
+  <meta property="twitter:image" content="https://axiomlabs.cl/assets/ruta_g_pwa_mockup.png">
+
+  <link rel="icon" type="image/png" href="../assets/axiomlabslogo.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    html { scroll-behavior: smooth; }
+    details > summary { list-style: none; cursor: pointer; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] .faq-chev { transform: rotate(180deg); }
+  </style>
+</head>
+<body class="bg-orange-50/40 text-slate-900 antialiased">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-baseline gap-2">
+        <span class="text-xl font-black tracking-tight text-orange-600">Ruta G</span>
+        <span class="hidden sm:inline text-[11px] font-semibold uppercase tracking-wide text-slate-400">por <a href="https://axiomlabs.cl" class="hover:text-slate-600">Axiom Labs</a></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="#como-funciona" class="hover:text-slate-900">Cómo funciona</a>
+        <a href="#beneficios" class="hover:text-slate-900">Beneficios</a>
+        <a href="#simulador" class="hover:text-slate-900">Simulador</a>
+        <a href="#faq" class="hover:text-slate-900">Preguntas</a>
+        <a href="#talleres" class="hover:text-slate-900">Para talleres</a>
+      </nav>
+      <a href="https://rutag.axiomlabs.cl" class="rounded-full bg-orange-600 hover:bg-orange-700 text-white text-sm font-bold px-5 py-2.5 transition-colors">Cotizar ahora</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="max-w-6xl mx-auto px-5 pt-14 pb-16 md:pt-20 md:pb-24 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-orange-100 text-orange-700 text-xs font-bold px-3 py-1 mb-5">🚗 Mantenimiento vehicular inteligente</span>
+        <h1 class="text-4xl md:text-5xl font-black tracking-tight leading-[1.1] mb-5">
+          La mantención de tu auto, <span class="text-orange-600">sin llamadas ni vueltas</span>.
+        </h1>
+        <p class="text-lg text-slate-600 mb-8 max-w-lg">
+          Dinos qué auto tienes, compara cotizaciones de talleres verificados y agenda tu hora online. Todo en minutos, desde el celular.
+        </p>
+        <div class="flex flex-wrap items-center gap-3 mb-8">
+          <a href="https://rutag.axiomlabs.cl" class="rounded-full bg-orange-600 hover:bg-orange-700 text-white font-bold px-7 py-3.5 transition-colors shadow-lg shadow-orange-600/20">Cotizar mi mantención →</a>
+          <a href="#como-funciona" class="rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-semibold px-6 py-3.5 transition-colors">Ver cómo funciona</a>
+        </div>
+        <div class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-500">
+          <span>✓ Gratis para conductores</span>
+          <span>✓ Talleres verificados</span>
+          <span>✓ Sin descargar apps</span>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="absolute inset-0 bg-orange-200/40 blur-3xl rounded-full"></div>
+        <img src="../assets/ruta_g_app_mockup.png" alt="Ruta G en un celular mostrando cotizaciones de talleres" class="relative mx-auto w-full max-w-sm drop-shadow-2xl" loading="eager">
+      </div>
+    </section>
+
+    <!-- Cómo funciona -->
+    <section id="como-funciona" class="bg-white border-y border-slate-100 py-16 md:py-20">
+      <div class="max-w-6xl mx-auto px-5">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-black tracking-tight mb-3">Así de simple</h2>
+          <p class="text-slate-500 max-w-xl mx-auto">Tres pasos entre tu auto y su próxima mantención.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="rounded-[1.5rem] bg-orange-50/60 p-7">
+            <div class="w-10 h-10 rounded-full bg-orange-600 text-white font-black flex items-center justify-center mb-4">1</div>
+            <h3 class="font-bold text-lg mb-2">Cuéntanos de tu auto</h3>
+            <p class="text-slate-600 text-sm">Ingresa tu patente o los datos de tu vehículo y qué necesitas: mantención por kilometraje, frenos, lo que sea.</p>
+          </div>
+          <div class="rounded-[1.5rem] bg-orange-50/60 p-7">
+            <div class="w-10 h-10 rounded-full bg-orange-600 text-white font-black flex items-center justify-center mb-4">2</div>
+            <h3 class="font-bold text-lg mb-2">Compara talleres</h3>
+            <p class="text-slate-600 text-sm">Te mostramos talleres verificados compatibles con tu auto, con disponibilidad real y cotización detallada de cada trabajo.</p>
+          </div>
+          <div class="rounded-[1.5rem] bg-orange-50/60 p-7">
+            <div class="w-10 h-10 rounded-full bg-orange-600 text-white font-black flex items-center justify-center mb-4">3</div>
+            <h3 class="font-bold text-lg mb-2">Agenda y listo</h3>
+            <p class="text-slate-600 text-sm">Eliges hora, confirmas online y recibes la invitación en tu calendario. El taller te espera con todo coordinado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section id="beneficios" class="py-16 md:py-20">
+      <div class="max-w-6xl mx-auto px-5">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-black tracking-tight mb-3">Todo tu auto, en un solo lugar</h2>
+          <p class="text-slate-500 max-w-xl mx-auto">Ruta G no es solo agendar: es dejar de preocuparte por la mantención.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="rounded-[1.5rem] bg-white shadow-[0_2px_16px_rgba(0,0,0,0.04)] p-6">
+            <div class="text-3xl mb-3">💰</div>
+            <h3 class="font-bold mb-1.5">Cotizaciones claras</h3>
+            <p class="text-sm text-slate-600">Mano de obra y repuestos desglosados antes de comprometerte. Sin sorpresas al pagar.</p>
+          </div>
+          <div class="rounded-[1.5rem] bg-white shadow-[0_2px_16px_rgba(0,0,0,0.04)] p-6">
+            <div class="text-3xl mb-3">📅</div>
+            <h3 class="font-bold mb-1.5">Agenda en línea</h3>
+            <p class="text-sm text-slate-600">Horas disponibles reales de cada taller. Reservas, confirmas y queda en tu calendario.</p>
+          </div>
+          <div class="rounded-[1.5rem] bg-white shadow-[0_2px_16px_rgba(0,0,0,0.04)] p-6">
+            <div class="text-3xl mb-3">📖</div>
+            <h3 class="font-bold mb-1.5">Historial de tu vehículo</h3>
+            <p class="text-sm text-slate-600">Cada trabajo queda registrado. Ideal para la reventa y para saber qué toca después.</p>
+          </div>
+          <div class="rounded-[1.5rem] bg-white shadow-[0_2px_16px_rgba(0,0,0,0.04)] p-6">
+            <div class="text-3xl mb-3">🔔</div>
+            <h3 class="font-bold mb-1.5">Recordatorios inteligentes</h3>
+            <p class="text-sm text-slate-600">Mantenciones por kilometraje y vencimientos de documentos, avisados a tiempo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulador -->
+    <section id="simulador" class="bg-white border-y border-slate-100 py-16 md:py-20">
+      <div class="max-w-5xl mx-auto px-5">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl md:text-4xl font-black tracking-tight mb-3">¿Qué le toca a tu auto?</h2>
+          <p class="text-slate-500 max-w-xl mx-auto">Simula la pauta de mantención recomendada según marca y kilometraje, y el ahorro estimado frente a automotoras oficiales.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="rounded-[1.5rem] bg-slate-50 p-7">
+            <div class="mb-4">
+              <label for="vehicle-make" class="block text-sm font-semibold text-slate-600 mb-1.5">Marca del vehículo</label>
+              <select id="vehicle-make" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100">
+                <option value="toyota">Toyota</option>
+                <option value="hyundai">Hyundai</option>
+                <option value="kia">Kia</option>
+                <option value="chevrolet">Chevrolet</option>
+                <option value="nissan">Nissan</option>
+                <option value="mazda">Mazda</option>
+                <option value="ford">Ford</option>
+                <option value="mitsubishi">Mitsubishi</option>
+                <option value="suzuki">Suzuki</option>
+                <option value="peugeot">Peugeot</option>
+              </select>
+            </div>
+            <div class="mb-4">
+              <label for="vehicle-fuel" class="block text-sm font-semibold text-slate-600 mb-1.5">Tipo de motor</label>
+              <select id="vehicle-fuel" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100">
+                <option value="bencina">Bencina (Gasolina)</option>
+                <option value="diesel">Diésel</option>
+                <option value="hibrido">Híbrido</option>
+              </select>
+            </div>
+            <div class="mb-6">
+              <label for="vehicle-mileage" class="block text-sm font-semibold text-slate-600 mb-1.5">Kilometraje actual</label>
+              <select id="vehicle-mileage" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100">
+                <option value="10000">10.000 km</option>
+                <option value="20000">20.000 km</option>
+                <option value="40000">40.000 km</option>
+                <option value="60000">60.000 km</option>
+                <option value="100000">100.000 km o más</option>
+              </select>
+            </div>
+            <button type="button" id="btn-calculate" class="w-full rounded-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3.5 transition-colors">Calcular mi mantención</button>
+          </div>
+          <div class="rounded-[1.5rem] border-2 border-dashed border-slate-200 p-7 flex flex-col" id="calc-result-panel">
+            <div id="results-placeholder" class="m-auto text-center text-slate-400">
+              <div class="text-4xl mb-3">🔧</div>
+              <p class="text-sm max-w-xs">Completa los datos de tu auto y calcula los trabajos recomendados y tu ahorro estimado.</p>
+            </div>
+            <div id="results-content" style="display:none">
+              <h3 id="result-vehicle-name" class="font-bold text-lg mb-1">—</h3>
+              <p class="text-xs text-slate-400 uppercase tracking-wide font-bold mb-4">Pauta recomendada</p>
+              <div class="rounded-2xl bg-green-50 text-green-800 px-4 py-3 mb-4">
+                <div class="text-2xl font-black" id="result-saving-clp">—</div>
+                <div class="text-xs">ahorro estimado frente a automotoras oficiales</div>
+              </div>
+              <ul id="result-tasks-container" class="text-sm text-slate-600 space-y-2 mb-5"></ul>
+              <a href="https://rutag.axiomlabs.cl" class="block text-center rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 transition-colors">Agendar esta mantención →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Para talleres -->
+    <section id="talleres" class="py-16 md:py-20">
+      <div class="max-w-6xl mx-auto px-5">
+        <div class="rounded-[2rem] bg-slate-900 text-white p-8 md:p-12 grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <span class="inline-flex rounded-full bg-orange-500/20 text-orange-300 text-xs font-bold px-3 py-1 mb-4">PARA TALLERES</span>
+            <h2 class="text-3xl font-black tracking-tight mb-3">¿Tienes un taller mecánico o lubricentro?</h2>
+            <p class="text-slate-300 mb-6">Recibe solicitudes compatibles con tus servicios, cotiza con ayuda de IA y gestiona tu agenda desde el celular. Sin costo de entrada.</p>
+            <div class="flex flex-wrap gap-3">
+              <a href="https://axiomlabs.cl/#contact" class="rounded-full bg-orange-600 hover:bg-orange-500 text-white font-bold px-6 py-3 transition-colors">Conectar mi taller</a>
+              <a href="https://talleres.axiomlabs.cl" class="rounded-full border border-slate-600 hover:border-slate-400 text-slate-200 font-semibold px-6 py-3 transition-colors">Ya tengo cuenta →</a>
+            </div>
+          </div>
+          <ul class="space-y-3 text-sm">
+            <li class="flex gap-3 items-start"><span class="text-orange-400 font-black">✓</span> Solo recibes trabajos que puedes hacer, según tus servicios y marcas</li>
+            <li class="flex gap-3 items-start"><span class="text-orange-400 font-black">✓</span> Cotizaciones con desglose de repuestos sugerido por IA</li>
+            <li class="flex gap-3 items-start"><span class="text-orange-400 font-black">✓</span> Agenda con capacidad, bloqueos y confirmaciones automáticas</li>
+            <li class="flex gap-3 items-start"><span class="text-orange-400 font-black">✓</span> Historial y trazabilidad de cada vehículo que atiendes</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="bg-white border-y border-slate-100 py-16 md:py-20">
+      <div class="max-w-3xl mx-auto px-5">
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight text-center mb-10">Preguntas frecuentes</h2>
+        <div class="space-y-3">
+          <details class="rounded-2xl bg-slate-50 px-6 py-4">
+            <summary class="flex items-center justify-between font-bold">¿Cuánto cuesta usar Ruta G? <span class="faq-chev transition-transform text-slate-400">▼</span></summary>
+            <p class="text-sm text-slate-600 mt-3">Para conductores es gratis. Solo pagas el servicio que contrates, directamente al taller, al precio cotizado.</p>
+          </details>
+          <details class="rounded-2xl bg-slate-50 px-6 py-4">
+            <summary class="flex items-center justify-between font-bold">¿Qué talleres participan? <span class="faq-chev transition-transform text-slate-400">▼</span></summary>
+            <p class="text-sm text-slate-600 mt-3">Talleres y lubricentros verificados por Ruta G, con servicios, marcas que trabajan y disponibilidad declarados en la plataforma. La red está creciendo, partiendo por la Región Metropolitana.</p>
+          </details>
+          <details class="rounded-2xl bg-slate-50 px-6 py-4">
+            <summary class="flex items-center justify-between font-bold">¿Tengo que descargar una app? <span class="faq-chev transition-transform text-slate-400">▼</span></summary>
+            <p class="text-sm text-slate-600 mt-3">No. Ruta G es una WebApp: funciona en el navegador de cualquier celular o computador. Si quieres, puedes agregarla a tu pantalla de inicio y usarla como app.</p>
+          </details>
+          <details class="rounded-2xl bg-slate-50 px-6 py-4">
+            <summary class="flex items-center justify-between font-bold">¿Cómo sé que la cotización es seria? <span class="faq-chev transition-transform text-slate-400">▼</span></summary>
+            <p class="text-sm text-slate-600 mt-3">Cada cotización llega desglosada: mano de obra, repuestos ítem por ítem y descuentos. Tú decides con toda la información antes de confirmar, y puedes rechazarla sin costo.</p>
+          </details>
+          <details class="rounded-2xl bg-slate-50 px-6 py-4">
+            <summary class="flex items-center justify-between font-bold">¿Y si el taller no responde? <span class="faq-chev transition-transform text-slate-400">▼</span></summary>
+            <p class="text-sm text-slate-600 mt-3">Los talleres tienen plazos definidos para responder tu solicitud. Si no lo hacen, tu hora se libera automáticamente y puedes cotizar con otro taller de inmediato.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA final -->
+    <section class="py-16 md:py-24 text-center px-5">
+      <h2 class="text-3xl md:text-4xl font-black tracking-tight mb-4">Tu auto te lo va a agradecer</h2>
+      <p class="text-slate-500 mb-8 max-w-md mx-auto">Cotiza tu próxima mantención ahora — te toma menos que encontrar el número del taller.</p>
+      <a href="https://rutag.axiomlabs.cl" class="inline-block rounded-full bg-orange-600 hover:bg-orange-700 text-white font-bold px-10 py-4 text-lg transition-colors shadow-lg shadow-orange-600/20">Cotizar mi mantención →</a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 py-10 text-center text-sm text-slate-400">
+    <p class="mb-1"><span class="font-black text-orange-600">Ruta G</span> es un producto de <a href="https://axiomlabs.cl" class="font-semibold text-slate-500 hover:text-slate-700">Axiom Labs SpA</a></p>
+    <p>Santiago, Chile · <a href="mailto:contacto@axiomlabs.cl" class="hover:text-slate-600">contacto@axiomlabs.cl</a></p>
+  </footer>
+
+  <!-- CTA sticky móvil -->
+  <div class="md:hidden fixed bottom-0 inset-x-0 z-40 p-3 bg-gradient-to-t from-white via-white/95 to-transparent">
+    <a href="https://rutag.axiomlabs.cl" class="block text-center rounded-full bg-orange-600 active:bg-orange-700 text-white font-bold py-3.5 shadow-lg shadow-orange-600/30">Cotizar mi mantención →</a>
+  </div>
+  <div class="md:hidden h-20"></div><!-- espacio para que el sticky no tape el footer -->
+
+  <script>
+    // Simulador — misma data que el landing corporativo
+    const calculatorData = {
+      "toyota": {
+        "10000": { saving: "$55.000 CLP", tasks: ["Inspección de niveles y fluidos generales", "Cambio de aceite sintético (5W30) y filtro original", "Rotación de neumáticos", "Inspección de frenos de disco delanteros"] },
+        "20000": { saving: "$80.000 CLP", tasks: ["Cambio de aceite de motor y filtro", "Cambio de filtro de aire de motor", "Alineación y balanceo", "Inspección de pastillas de freno y bujías"] },
+        "40000": { saving: "$120.000 CLP", tasks: ["Cambio completo de aceite sintético y filtros", "Cambio de líquido de frenos DOT4", "Cambio de filtro de polen de cabina", "Limpieza de frenos traseros y rectificación"] },
+        "60000": { saving: "$150.000 CLP", tasks: ["Cambio de aceite y filtro", "Cambio de bujías de encendido de iridio", "Inspección de correas de accesorios", "Limpieza de cuerpo de aceleración"] },
+        "100000": { saving: "$210.000 CLP", tasks: ["Cambio de aceite de motor y filtro", "Reemplazo de refrigerante de motor (Long Life)", "Cambio de aceite de transmisión automática/manual", "Inspección de kit de suspensión y amortiguadores"] }
+      },
+      "hyundai": {
+        "10000": { saving: "$50.000 CLP", tasks: ["Cambio de aceite sintético (5W30) y filtro", "Revisión de pastillas de freno y desgaste", "Ajuste de freno de estacionamiento", "Escaneo de códigos de error OBD-II"] },
+        "20000": { saving: "$75.000 CLP", tasks: ["Cambio de aceite y filtro de motor", "Reemplazo de filtro de polen (A/C)", "Rotación y balanceo de ruedas", "Revisión de bujes de suspensión"] },
+        "40000": { saving: "$110.000 CLP", tasks: ["Cambio de aceite sintético y filtro", "Reemplazo de filtro de gasolina de estanque", "Cambio de líquido de frenos y purgado de cañerías", "Alineación de dirección"] },
+        "60000": { saving: "$140.000 CLP", tasks: ["Cambio de aceite y filtro", "Cambio de bujías e inspección de cables de encendido", "Inspección visual de kit de embrague", "Revisión de tensión de alternador"] },
+        "100000": { saving: "$190.000 CLP", tasks: ["Cambio de aceite y filtro de motor", "Cambio de correa de alternador y bomba de agua", "Revisión de radiador y fugas", "Escaneo computarizado completo de la ECU"] }
+      },
+      "kia": {
+        "10000": { saving: "$50.000 CLP", tasks: ["Cambio de aceite sintético y filtro", "Revisión de frenos y pastillas", "Inspección de niveles generales", "Escaneo OBD-II preventivo"] },
+        "20000": { saving: "$75.000 CLP", tasks: ["Cambio de aceite y filtro de motor", "Rotación de neumáticos", "Cambio de filtro de aire de cabina", "Revisión de bujías e ignición"] },
+        "40000": { saving: "$110.000 CLP", tasks: ["Cambio de aceite sintético y filtro", "Cambio de líquido de frenos DOT4", "Alineación y balanceo", "Inspección de correas de accesorios"] },
+        "60000": { saving: "$140.000 CLP", tasks: ["Cambio de aceite y filtro", "Reemplazo de bujías de iridio", "Cambio de filtro de combustible", "Revisión de suspensión y dirección"] },
+        "100000": { saving: "$190.000 CLP", tasks: ["Cambio de aceite y filtro de motor", "Cambio de aceite de caja automática", "Reemplazo de refrigerante de motor", "Inspección completa de tren motriz"] }
+      },
+      "mazda": {
+        "10000": { saving: "$55.000 CLP", tasks: ["Cambio de aceite SkyActiv y filtro", "Revisión de frenos y calibración", "Inspección de sistema eléctrico", "Rotación de neumáticos"] },
+        "20000": { saving: "$80.000 CLP", tasks: ["Cambio de aceite y filtro", "Cambio de filtro de aire motor", "Alineación de dirección", "Revisión de pastillas y discos"] },
+        "40000": { saving: "$115.000 CLP", tasks: ["Cambio de aceite SkyActiv y filtros", "Cambio de líquido de frenos", "Cambio de filtro de habitáculo", "Inspección de amortiguadores"] },
+        "60000": { saving: "$145.000 CLP", tasks: ["Cambio de aceite y filtro", "Reemplazo de bujías originales", "Revisión de sistema de escape", "Limpieza de inyectores"] },
+        "100000": { saving: "$200.000 CLP", tasks: ["Cambio de aceite y filtro de motor", "Cambio de aceite de transmisión", "Revisión de kit de distribución", "Inspección general de suspensión"] }
+      },
+      "ford": {
+        "10000": { saving: "$52.000 CLP", tasks: ["Cambio de aceite sintético y filtro", "Inspección de frenos traseros y delanteros", "Revisión de batería y alternador", "Rotación de neumáticos"] },
+        "20000": { saving: "$78.000 CLP", tasks: ["Cambio de aceite y filtro de motor", "Cambio de filtro de aire", "Alineación y balanceo en dos ejes", "Revisión de bujes y rótulas"] },
+        "40000": { saving: "$115.000 CLP", tasks: ["Cambio de aceite EcoBoost y filtro", "Cambio de líquido de frenos", "Inspección de correa de accesorios", "Cambio de filtro de combustible"] },
+        "60000": { saving: "$145.000 CLP", tasks: ["Cambio de aceite y filtro", "Reemplazo de bujías", "Revisión de sistema de transmisión", "Diagnóstico computarizado ECU"] },
+        "100000": { saving: "$195.000 CLP", tasks: ["Cambio de aceite y filtro de motor", "Cambio de aceite de caja de cambios", "Inspección de kit de embrague", "Revisión completa de chasis y suspensión"] }
+      },
+      "mitsubishi": {
+        "10000": { saving: "$48.000 CLP", tasks: ["Cambio de aceite sintético y filtro", "Revisión de frenos y desgaste de pastillas", "Inspección de luces y fusibles", "Control de presión de neumáticos"] },
+        "20000": { saving: "$72.000 CLP", tasks: ["Cambio de aceite y filtro de motor", "Cambio de filtro de aire de admisión", "Rotación de neumáticos", "Revisión de sistema de dirección"] },
+        "40000": { saving: "$108.000 CLP", tasks: ["Cambio de aceite y filtros", "Cambio de líquido de frenos y purga", "Alineación y balanceo", "Inspección de diferencial 4WD"] },
+        "60000": { saving: "$138.000 CLP", tasks: ["Cambio de aceite y filtro", "Reemplazo de bujías de motor", "Revisión de correa de distribución", "Cambio de aceite de transferencia"] },
+        "100000": { saving: "$185.000 CLP", tasks: ["Cambio de aceite y filtro de motor", "Cambio de aceite de caja y diferencial", "Inspección de sistema 4WD completo", "Revisión de suspensión delantera y trasera"] }
+      },
+      "general": {
+        "10000": { saving: "$45.000 CLP", tasks: ["Cambio de aceite de motor y filtro", "Revisión de luces, batería y fusibles", "Rotación de neumáticos básica"] },
+        "20000": { saving: "$70.000 CLP", tasks: ["Cambio de aceite y filtro", "Cambio de filtro de aire de admisión", "Alineación y balanceo en dos ejes", "Inspección general de frenos"] },
+        "40000": { saving: "$105.000 CLP", tasks: ["Cambio de aceite de motor y filtros", "Cambio de líquido de frenos", "Inspección visual de correas, mangueras e hidráulico"] },
+        "60000": { saving: "$130.000 CLP", tasks: ["Cambio de aceite y filtro", "Reemplazo de bujías de motor", "Limpieza de frenos traseros y testeo de gases"] },
+        "100000": { saving: "$180.000 CLP", tasks: ["Cambio de aceite y filtro de motor", "Cambio de aceite de caja de transmisión", "Inspección de amortiguadores y extremos de dirección"] }
+      }
+    };
+
+    document.getElementById("btn-calculate").addEventListener("click", function() {
+      const make = document.getElementById("vehicle-make");
+      const fuel = document.getElementById("vehicle-fuel");
+      const mileage = document.getElementById("vehicle-mileage");
+      const data = (calculatorData[make.value] || calculatorData.general)[mileage.value] || calculatorData.general[mileage.value];
+
+      document.getElementById("result-vehicle-name").textContent =
+        make.options[make.selectedIndex].text + " (" + fuel.options[fuel.selectedIndex].text + ") · " + mileage.options[mileage.selectedIndex].text;
+      document.getElementById("result-saving-clp").textContent = data.saving;
+
+      const list = document.getElementById("result-tasks-container");
+      list.innerHTML = "";
+      data.tasks.forEach(t => {
+        const li = document.createElement("li");
+        li.textContent = "• " + t;
+        list.appendChild(li);
+      });
+
+      document.getElementById("results-placeholder").style.display = "none";
+      document.getElementById("results-content").style.display = "block";
+      document.getElementById("calc-result-panel").classList.remove("border-dashed");
+    });
+  </script>
+</body>
+</html>
