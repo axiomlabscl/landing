@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +17,8 @@
   <meta property="og:title" content="Ruta G | La mantención de tu auto, sin llamadas ni vueltas">
   <meta property="og:description" content="Descubre qué necesita tu auto, compara talleres verificados y agenda online. Gratis, sin descargas.">
   <meta property="og:image" content="https://rutag.cl/assets/ruta_g_pwa_mockup.png">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:site_name" content="Ruta G">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
@@ -26,7 +28,8 @@
 
   <link rel="icon" type="image/png" href="assets/axiomlabslogo.png">
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- CSS precompilado (15KB estático); el CDN de Tailwind era el JIT de dev -->
+  <link rel="stylesheet" href="assets/app.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
@@ -36,6 +39,73 @@
     details > summary::-webkit-details-marker { display: none; }
     details[open] .faq-chev { transform: rotate(180deg); }
   </style>
+
+  <!-- Datos estructurados: FAQPage habilita resultados enriquecidos en Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://axiomlabs.cl/#org",
+        "name": "Axiom Labs SpA",
+        "url": "https://axiomlabs.cl",
+        "logo": "https://rutag.cl/assets/axiomlabslogo.png",
+        "email": "contacto@axiomlabs.cl",
+        "address": { "@type": "PostalAddress", "addressLocality": "Santiago", "addressCountry": "CL" }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://rutag.cl/#website",
+        "url": "https://rutag.cl/",
+        "name": "Ruta G",
+        "inLanguage": "es-CL",
+        "publisher": { "@id": "https://axiomlabs.cl/#org" }
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Ruta G",
+        "url": "https://app.rutag.cl",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "es-CL",
+        "description": "Analiza qué mantención necesita tu auto, compara precios de talleres mecánicos verificados y agenda tu hora online. Gratis para conductores.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CLP" },
+        "publisher": { "@id": "https://axiomlabs.cl/#org" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cuánto cuesta usar Ruta G?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Para conductores es gratis. Solo pagas el servicio que contrates, directamente al taller, al precio cotizado." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué talleres participan?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Talleres y lubricentros verificados por Ruta G, con servicios, marcas que trabajan y disponibilidad declarados en la plataforma. La red está creciendo, partiendo por la Región Metropolitana." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Tengo que descargar una app?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Ruta G es una WebApp: funciona en el navegador de cualquier celular o computador. Si quieres, puedes agregarla a tu pantalla de inicio y usarla como app." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo sé que la cotización es seria?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Cada cotización llega desglosada: mano de obra, repuestos ítem por ítem y descuentos. Tú decides con toda la información antes de confirmar, y puedes rechazarla sin costo." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Y si el taller no responde?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Los talleres tienen plazos definidos para responder tu solicitud. Si no lo hacen, tu hora se libera automáticamente y puedes cotizar con otro taller de inmediato." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="bg-orange-50/40 text-slate-900 antialiased">
 
