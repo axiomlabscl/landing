@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Ruta G | Analiza tu auto, compara talleres y agenda tu mantención online</title>
-  <meta name="description" content="Ruta G te dice qué mantención necesita tu auto, compara precios de talleres verificados y te deja agendar online en minutos. Gratis para conductores, sin descargas y sin llamadas.">
+  <meta name="description" content="Ingresa tu patente y Ruta G te dice qué mantención necesita tu auto según el manual oficial, compara talleres verificados por compatibilidad y cercanía, y agenda online. Gratis para conductores.">
   <meta name="keywords" content="mantencion auto, cotizar mantencion, taller mecanico santiago, cambio de aceite, agendar taller, ruta g, lubricentro">
   <meta name="author" content="Axiom Labs SpA">
 
@@ -14,30 +14,55 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rutag.cl/">
-  <meta property="og:title" content="Ruta G | La mantención de tu auto, sin llamadas ni vueltas">
-  <meta property="og:description" content="Descubre qué necesita tu auto, compara talleres verificados y agenda online. Gratis, sin descargas.">
+  <meta property="og:title" content="Ruta G | Ingresa tu patente. Sabremos qué necesita tu auto.">
+  <meta property="og:description" content="Recomendaciones del manual oficial de tu marca, talleres verificados por compatibilidad y agenda online. Gratis, sin descargas.">
   <meta property="og:image" content="https://rutag.cl/assets/ruta_g_pwa_mockup.png">
   <meta property="og:locale" content="es_CL">
   <meta property="og:site_name" content="Ruta G">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:title" content="Ruta G | La mantención de tu auto, sin llamadas ni vueltas">
-  <meta property="twitter:description" content="Descubre qué necesita tu auto, compara talleres verificados y agenda online. Gratis, sin descargas.">
+  <meta property="twitter:title" content="Ruta G | Ingresa tu patente. Sabremos qué necesita tu auto.">
+  <meta property="twitter:description" content="Recomendaciones del manual oficial de tu marca, talleres verificados por compatibilidad y agenda online. Gratis, sin descargas.">
   <meta property="twitter:image" content="https://rutag.cl/assets/ruta_g_pwa_mockup.png">
 
-  <link rel="icon" type="image/png" href="assets/axiomlabslogo.png">
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="%23FF6B35"/><text x="32" y="45" font-family="Arial,Helvetica,sans-serif" font-size="38" font-weight="900" fill="%23fff" text-anchor="middle">G</text></svg>'>
+  <meta name="theme-color" content="#0F0F0F">
 
-  <!-- CSS precompilado (15KB estático); el CDN de Tailwind era el JIT de dev -->
-  <link rel="stylesheet" href="assets/app.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    html { scroll-behavior: smooth; }
-    details > summary { list-style: none; cursor: pointer; }
-    details > summary::-webkit-details-marker { display: none; }
-    details[open] .faq-chev { transform: rotate(180deg); }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#0F0F0F;color:#FAFAF8;font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    a{color:#FF6B35;text-decoration:none}
+    a:hover{color:#ff855c}
+    button{font-family:inherit}
+    ::selection{background:#FF6B35;color:#fff}
+    input{font-family:inherit}
+    input::placeholder{color:#5a5a5a}
+    @keyframes revealUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+    @keyframes floatTilt{0%,100%{transform:perspective(1300px) rotateY(-13deg) rotateX(3deg) translateY(0)}50%{transform:perspective(1300px) rotateY(-13deg) rotateX(3deg) translateY(-16px)}}
+    @keyframes floatSoft{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    @keyframes caret{0%,100%{opacity:1}50%{opacity:0}}
+    @keyframes glowPulse{0%,100%{opacity:.55}50%{opacity:.8}}
+    @keyframes revealRight{from{opacity:0;transform:translateX(44px)}to{opacity:1;transform:none}}
+    @keyframes pulseRing{0%{transform:scale(.6);opacity:.75}70%,100%{transform:scale(2.6);opacity:0}}
+    /* hovers/focus (el diseño original los aplicaba por framework; acá van con !important para ganarle al estilo inline) */
+    .cta:hover{filter:brightness(1.1);transform:translateY(-2px)}
+    .cta-flat:hover{filter:brightness(1.1)}
+    .ghost-orange:hover{background:rgba(255,107,53,.12)!important}
+    .ghost-blue:hover{background:rgba(120,170,230,.12)!important}
+    .flink:hover{color:#fff!important}
+    .brandi:hover{color:#FAFAF8!important}
+    input.plate:focus{border-color:#FF6B35!important;box-shadow:0 0 0 4px rgba(255,107,53,.18)!important;outline:none}
+    /* FAQ acordeón */
+    .faq-panel{max-height:0;opacity:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,.61,.36,1),opacity .3s ease}
+    .faq-item.open .faq-panel{max-height:320px;opacity:1}
+    .faq-chev{display:flex;flex:none;transition:transform .3s ease}
+    .faq-item.open .faq-chev{transform:rotate(180deg)}
   </style>
 
   <!-- Datos estructurados: FAQPage habilita resultados enriquecidos en Google -->
@@ -50,7 +75,6 @@
         "@id": "https://axiomlabs.cl/#org",
         "name": "Axiom Labs SpA",
         "url": "https://axiomlabs.cl",
-        "logo": "https://rutag.cl/assets/axiomlabslogo.png",
         "email": "contacto@axiomlabs.cl",
         "address": { "@type": "PostalAddress", "addressLocality": "Santiago", "addressCountry": "CL" }
       },
@@ -69,363 +93,442 @@
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
         "inLanguage": "es-CL",
-        "description": "Analiza qué mantención necesita tu auto, compara precios de talleres mecánicos verificados y agenda tu hora online. Gratis para conductores.",
+        "description": "Ingresa tu patente y descubre qué mantención necesita tu auto según el manual oficial; compara talleres verificados y agenda online. Gratis para conductores.",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CLP" },
         "publisher": { "@id": "https://axiomlabs.cl/#org" }
       },
       {
         "@type": "FAQPage",
         "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "¿Cuánto cuesta usar Ruta G?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Para conductores es gratis. Solo pagas el servicio que contrates, directamente al taller, al precio cotizado." }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Qué talleres participan?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Talleres y lubricentros verificados por Ruta G, con servicios, marcas que trabajan y disponibilidad declarados en la plataforma. La red está creciendo, partiendo por la Región Metropolitana." }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Tengo que descargar una app?",
-            "acceptedAnswer": { "@type": "Answer", "text": "No. Ruta G es una WebApp: funciona en el navegador de cualquier celular o computador. Si quieres, puedes agregarla a tu pantalla de inicio y usarla como app." }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Cómo sé que la cotización es seria?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Cada cotización llega desglosada: mano de obra, repuestos ítem por ítem y descuentos. Tú decides con toda la información antes de confirmar, y puedes rechazarla sin costo." }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Y si el taller no responde?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Los talleres tienen plazos definidos para responder tu solicitud. Si no lo hacen, tu hora se libera automáticamente y puedes cotizar con otro taller de inmediato." }
-          }
+          { "@type": "Question", "name": "¿Cuánto cuesta usar Ruta G?", "acceptedAnswer": { "@type": "Answer", "text": "Nada. Ingresar tu patente, ver la mantención recomendada y comparar talleres es gratis. Pagas solo el servicio que elijas, directo al taller." } },
+          { "@type": "Question", "name": "¿Qué pasa si mi auto no aparece?", "acceptedAnswer": { "@type": "Answer", "text": "Puedes ingresar marca, modelo y año manualmente. Igual te mostramos la mantención recomendada según el manual del fabricante." } },
+          { "@type": "Question", "name": "¿De dónde salen las recomendaciones?", "acceptedAnswer": { "@type": "Answer", "text": "De los manuales técnicos oficiales de cada fabricante, según el kilometraje y modelo de tu auto. No usamos estimaciones genéricas." } },
+          { "@type": "Question", "name": "¿Puedo confiar en los precios estimados?", "acceptedAnswer": { "@type": "Answer", "text": "Son valores referenciales de mercado. El taller confirma el precio final antes de que aceptes, así que decides con toda la información." } },
+          { "@type": "Question", "name": "¿Necesito descargar una app?", "acceptedAnswer": { "@type": "Answer", "text": "No. Ruta G funciona completo desde el navegador de tu celular, sin instalar nada." } },
+          { "@type": "Question", "name": "¿Cómo sé que los talleres son confiables?", "acceptedAnswer": { "@type": "Answer", "text": "Cada taller pasa una verificación y solo aparece con los servicios que realmente realiza, con su porcentaje de compatibilidad con tu auto." } }
         ]
       }
     ]
   }
   </script>
 </head>
-<body class="bg-orange-50/40 text-slate-900 antialiased">
+<body>
 
-  <!-- Header -->
-  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-100">
-    <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
-      <span class="flex items-baseline gap-2">
-        <a href="https://rutag.cl" class="text-xl font-black tracking-tight text-orange-600">Ruta G</a>
-        <span class="hidden sm:inline text-[11px] font-semibold uppercase tracking-wide text-slate-400">por <a href="https://axiomlabs.cl" class="hover:text-slate-600">Axiom Labs</a></span>
-      </span>
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
-        <a href="#como-funciona" class="hover:text-slate-900">Cómo funciona</a>
-        <a href="#beneficios" class="hover:text-slate-900">Beneficios</a>
-        <a href="#simulador" class="hover:text-slate-900">Simulador</a>
-        <a href="#faq" class="hover:text-slate-900">Preguntas</a>
-        <a href="#talleres" class="hover:text-slate-900">Para talleres</a>
-      </nav>
-      <a href="https://app.rutag.cl" class="rounded-full bg-orange-600 hover:bg-orange-700 text-white text-sm font-bold px-5 py-2.5 transition-colors">Probar gratis</a>
-    </div>
-  </header>
+<div style="overflow-x:hidden">
 
-  <main>
-    <!-- Hero -->
-    <section class="max-w-6xl mx-auto px-5 pt-14 pb-16 md:pt-20 md:pb-24 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <span class="inline-flex items-center gap-1.5 rounded-full bg-orange-100 text-orange-700 text-xs font-bold px-3 py-1 mb-5">🚗 Mantenimiento vehicular inteligente</span>
-        <h1 class="text-4xl md:text-5xl font-black tracking-tight leading-[1.1] mb-5">
-          La mantención de tu auto, <span class="text-orange-600">sin llamadas ni vueltas</span>.
-        </h1>
-        <p class="text-lg text-slate-600 mb-8 max-w-lg">
-          Dinos qué auto tienes, mira qué mantención le toca, compara precios de talleres verificados y agenda tu hora online. Todo en minutos, desde el celular.
-        </p>
-        <div class="flex flex-wrap items-center gap-3 mb-8">
-          <a href="https://app.rutag.cl" class="rounded-full bg-orange-600 hover:bg-orange-700 text-white font-bold px-7 py-3.5 transition-colors shadow-lg shadow-orange-600/20">Analiza tu auto gratis →</a>
-          <a href="#como-funciona" class="rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-semibold px-6 py-3.5 transition-colors">Ver cómo funciona</a>
-        </div>
-        <div class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-500">
-          <span>✓ Gratis para conductores</span>
-          <span>✓ Talleres verificados</span>
-          <span>✓ Sin descargar apps</span>
-        </div>
-      </div>
-      <div class="relative">
-        <div class="absolute inset-0 bg-orange-200/40 blur-3xl rounded-full"></div>
-        <img src="assets/ruta_g_app_mockup.png" alt="Ruta G en un celular mostrando cotizaciones de talleres" class="relative mx-auto w-full max-w-sm drop-shadow-2xl" loading="eager">
-      </div>
-    </section>
-
-    <!-- Cómo funciona -->
-    <section id="como-funciona" class="bg-white border-y border-slate-100 py-16 md:py-20">
-      <div class="max-w-6xl mx-auto px-5">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-black tracking-tight mb-3">Así de simple</h2>
-          <p class="text-slate-500 max-w-xl mx-auto">Tres pasos entre tu auto y su próxima mantención.</p>
-        </div>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="rounded-[1.5rem] bg-orange-50/60 p-7">
-            <div class="w-10 h-10 rounded-full bg-orange-600 text-white font-black flex items-center justify-center mb-4">1</div>
-            <h3 class="font-bold text-lg mb-2">Cuéntanos de tu auto</h3>
-            <p class="text-slate-600 text-sm">Ingresa tu patente o los datos de tu vehículo y qué necesitas: mantención por kilometraje, frenos, lo que sea.</p>
-          </div>
-          <div class="rounded-[1.5rem] bg-orange-50/60 p-7">
-            <div class="w-10 h-10 rounded-full bg-orange-600 text-white font-black flex items-center justify-center mb-4">2</div>
-            <h3 class="font-bold text-lg mb-2">Compara talleres</h3>
-            <p class="text-slate-600 text-sm">Te mostramos talleres verificados compatibles con tu auto, con disponibilidad real y cotización detallada de cada trabajo.</p>
-          </div>
-          <div class="rounded-[1.5rem] bg-orange-50/60 p-7">
-            <div class="w-10 h-10 rounded-full bg-orange-600 text-white font-black flex items-center justify-center mb-4">3</div>
-            <h3 class="font-bold text-lg mb-2">Agenda y listo</h3>
-            <p class="text-slate-600 text-sm">Eliges hora, confirmas online y recibes la invitación en tu calendario. El taller te espera con todo coordinado.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Beneficios -->
-    <section id="beneficios" class="py-16 md:py-20">
-      <div class="max-w-6xl mx-auto px-5">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-black tracking-tight mb-3">Todo tu auto, en un solo lugar</h2>
-          <p class="text-slate-500 max-w-xl mx-auto">Ruta G no es solo agendar: es dejar de preocuparte por la mantención.</p>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          <div class="rounded-[1.5rem] bg-white shadow-[0_2px_16px_rgba(0,0,0,0.04)] p-6">
-            <div class="text-3xl mb-3">💰</div>
-            <h3 class="font-bold mb-1.5">Cotizaciones claras</h3>
-            <p class="text-sm text-slate-600">Mano de obra y repuestos desglosados antes de comprometerte. Sin sorpresas al pagar.</p>
-          </div>
-          <div class="rounded-[1.5rem] bg-white shadow-[0_2px_16px_rgba(0,0,0,0.04)] p-6">
-            <div class="text-3xl mb-3">📅</div>
-            <h3 class="font-bold mb-1.5">Agenda en línea</h3>
-            <p class="text-sm text-slate-600">Horas disponibles reales de cada taller. Reservas, confirmas y queda en tu calendario.</p>
-          </div>
-          <div class="rounded-[1.5rem] bg-white shadow-[0_2px_16px_rgba(0,0,0,0.04)] p-6">
-            <div class="text-3xl mb-3">📖</div>
-            <h3 class="font-bold mb-1.5">Historial de tu vehículo</h3>
-            <p class="text-sm text-slate-600">Cada trabajo queda registrado. Ideal para la reventa y para saber qué toca después.</p>
-          </div>
-          <div class="rounded-[1.5rem] bg-white shadow-[0_2px_16px_rgba(0,0,0,0.04)] p-6">
-            <div class="text-3xl mb-3">🔔</div>
-            <h3 class="font-bold mb-1.5">Recordatorios inteligentes</h3>
-            <p class="text-sm text-slate-600">Mantenciones por kilometraje y vencimientos de documentos, avisados a tiempo.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Simulador -->
-    <section id="simulador" class="bg-white border-y border-slate-100 py-16 md:py-20">
-      <div class="max-w-5xl mx-auto px-5">
-        <div class="text-center mb-10">
-          <h2 class="text-3xl md:text-4xl font-black tracking-tight mb-3">¿Qué le toca a tu auto?</h2>
-          <p class="text-slate-500 max-w-xl mx-auto">Simula la pauta de mantención recomendada según marca y kilometraje, y el ahorro estimado frente a automotoras oficiales.</p>
-        </div>
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="rounded-[1.5rem] bg-slate-50 p-7">
-            <div class="mb-4">
-              <label for="vehicle-make" class="block text-sm font-semibold text-slate-600 mb-1.5">Marca del vehículo</label>
-              <select id="vehicle-make" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100">
-                <option value="toyota">Toyota</option>
-                <option value="hyundai">Hyundai</option>
-                <option value="kia">Kia</option>
-                <option value="chevrolet">Chevrolet</option>
-                <option value="nissan">Nissan</option>
-                <option value="mazda">Mazda</option>
-                <option value="ford">Ford</option>
-                <option value="mitsubishi">Mitsubishi</option>
-                <option value="suzuki">Suzuki</option>
-                <option value="peugeot">Peugeot</option>
-              </select>
-            </div>
-            <div class="mb-4">
-              <label for="vehicle-fuel" class="block text-sm font-semibold text-slate-600 mb-1.5">Tipo de motor</label>
-              <select id="vehicle-fuel" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100">
-                <option value="bencina">Bencina (Gasolina)</option>
-                <option value="diesel">Diésel</option>
-                <option value="hibrido">Híbrido</option>
-              </select>
-            </div>
-            <div class="mb-6">
-              <label for="vehicle-mileage" class="block text-sm font-semibold text-slate-600 mb-1.5">Kilometraje actual</label>
-              <select id="vehicle-mileage" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100">
-                <option value="10000">10.000 km</option>
-                <option value="20000">20.000 km</option>
-                <option value="40000">40.000 km</option>
-                <option value="60000">60.000 km</option>
-                <option value="100000">100.000 km o más</option>
-              </select>
-            </div>
-            <button type="button" id="btn-calculate" class="w-full rounded-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3.5 transition-colors">Calcular mi mantención</button>
-          </div>
-          <div class="rounded-[1.5rem] border-2 border-dashed border-slate-200 p-7 flex flex-col" id="calc-result-panel">
-            <div id="results-placeholder" class="m-auto text-center text-slate-400">
-              <div class="text-4xl mb-3">🔧</div>
-              <p class="text-sm max-w-xs">Completa los datos de tu auto y calcula los trabajos recomendados y tu ahorro estimado.</p>
-            </div>
-            <div id="results-content" style="display:none">
-              <h3 id="result-vehicle-name" class="font-bold text-lg mb-1">—</h3>
-              <p class="text-xs text-slate-400 uppercase tracking-wide font-bold mb-4">Pauta recomendada</p>
-              <div class="rounded-2xl bg-green-50 text-green-800 px-4 py-3 mb-4">
-                <div class="text-2xl font-black" id="result-saving-clp">—</div>
-                <div class="text-xs">ahorro estimado frente a automotoras oficiales</div>
-              </div>
-              <ul id="result-tasks-container" class="text-sm text-slate-600 space-y-2 mb-5"></ul>
-              <a href="https://app.rutag.cl" class="block text-center rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 transition-colors">Agendar esta mantención →</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Para talleres -->
-    <section id="talleres" class="py-16 md:py-20">
-      <div class="max-w-6xl mx-auto px-5">
-        <div class="rounded-[2rem] bg-slate-900 text-white p-8 md:p-12 grid md:grid-cols-2 gap-8 items-center">
-          <div>
-            <span class="inline-flex rounded-full bg-orange-500/20 text-orange-300 text-xs font-bold px-3 py-1 mb-4">PARA TALLERES</span>
-            <h2 class="text-3xl font-black tracking-tight mb-3">¿Tienes un taller mecánico o lubricentro?</h2>
-            <p class="text-slate-300 mb-6">Recibe solicitudes compatibles con tus servicios, cotiza con ayuda de IA y gestiona tu agenda desde el celular. Sin costo de entrada.</p>
-            <div class="flex flex-wrap gap-3">
-              <a href="https://talleres.axiomlabs.cl/taller/registro.php" class="rounded-full bg-orange-600 hover:bg-orange-500 text-white font-bold px-6 py-3 transition-colors">Conectar mi taller — gratis en beta</a>
-              <a href="https://talleres.axiomlabs.cl" class="rounded-full border border-slate-600 hover:border-slate-400 text-slate-200 font-semibold px-6 py-3 transition-colors">Ya tengo cuenta →</a>
-            </div>
-          </div>
-          <ul class="space-y-3 text-sm">
-            <li class="flex gap-3 items-start"><span class="text-orange-400 font-black">✓</span> Solo recibes trabajos que puedes hacer, según tus servicios y marcas</li>
-            <li class="flex gap-3 items-start"><span class="text-orange-400 font-black">✓</span> Cotizaciones con desglose de repuestos sugerido por IA</li>
-            <li class="flex gap-3 items-start"><span class="text-orange-400 font-black">✓</span> Agenda con capacidad, bloqueos y confirmaciones automáticas</li>
-            <li class="flex gap-3 items-start"><span class="text-orange-400 font-black">✓</span> Historial y trazabilidad de cada vehículo que atiendes</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="bg-white border-y border-slate-100 py-16 md:py-20">
-      <div class="max-w-3xl mx-auto px-5">
-        <h2 class="text-3xl md:text-4xl font-black tracking-tight text-center mb-10">Preguntas frecuentes</h2>
-        <div class="space-y-3">
-          <details class="rounded-2xl bg-slate-50 px-6 py-4">
-            <summary class="flex items-center justify-between font-bold">¿Cuánto cuesta usar Ruta G? <span class="faq-chev transition-transform text-slate-400">▼</span></summary>
-            <p class="text-sm text-slate-600 mt-3">Para conductores es gratis. Solo pagas el servicio que contrates, directamente al taller, al precio cotizado.</p>
-          </details>
-          <details class="rounded-2xl bg-slate-50 px-6 py-4">
-            <summary class="flex items-center justify-between font-bold">¿Qué talleres participan? <span class="faq-chev transition-transform text-slate-400">▼</span></summary>
-            <p class="text-sm text-slate-600 mt-3">Talleres y lubricentros verificados por Ruta G, con servicios, marcas que trabajan y disponibilidad declarados en la plataforma. La red está creciendo, partiendo por la Región Metropolitana.</p>
-          </details>
-          <details class="rounded-2xl bg-slate-50 px-6 py-4">
-            <summary class="flex items-center justify-between font-bold">¿Tengo que descargar una app? <span class="faq-chev transition-transform text-slate-400">▼</span></summary>
-            <p class="text-sm text-slate-600 mt-3">No. Ruta G es una WebApp: funciona en el navegador de cualquier celular o computador. Si quieres, puedes agregarla a tu pantalla de inicio y usarla como app.</p>
-          </details>
-          <details class="rounded-2xl bg-slate-50 px-6 py-4">
-            <summary class="flex items-center justify-between font-bold">¿Cómo sé que la cotización es seria? <span class="faq-chev transition-transform text-slate-400">▼</span></summary>
-            <p class="text-sm text-slate-600 mt-3">Cada cotización llega desglosada: mano de obra, repuestos ítem por ítem y descuentos. Tú decides con toda la información antes de confirmar, y puedes rechazarla sin costo.</p>
-          </details>
-          <details class="rounded-2xl bg-slate-50 px-6 py-4">
-            <summary class="flex items-center justify-between font-bold">¿Y si el taller no responde? <span class="faq-chev transition-transform text-slate-400">▼</span></summary>
-            <p class="text-sm text-slate-600 mt-3">Los talleres tienen plazos definidos para responder tu solicitud. Si no lo hacen, tu hora se libera automáticamente y puedes cotizar con otro taller de inmediato.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA final -->
-    <section class="py-16 md:py-24 text-center px-5">
-      <h2 class="text-3xl md:text-4xl font-black tracking-tight mb-4">Tu auto te lo va a agradecer</h2>
-      <p class="text-slate-500 mb-8 max-w-md mx-auto">Encuentra tu taller y agenda ahora — te toma menos que encontrar el número del taller.</p>
-      <a href="https://app.rutag.cl" class="inline-block rounded-full bg-orange-600 hover:bg-orange-700 text-white font-bold px-10 py-4 text-lg transition-colors shadow-lg shadow-orange-600/20">Encontrar mi taller ahora →</a>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="border-t border-slate-200 py-10 text-center text-sm text-slate-400">
-    <p class="mb-1"><span class="font-black text-orange-600">Ruta G</span> es un producto de <a href="https://axiomlabs.cl" class="font-semibold text-slate-500 hover:text-slate-700">Axiom Labs SpA</a></p>
-    <p>Santiago, Chile · <a href="mailto:contacto@axiomlabs.cl" class="hover:text-slate-600">contacto@axiomlabs.cl</a></p>
-    <p class="mt-2"><a href="https://axiomlabs.cl/privacidad.html" class="hover:text-slate-600 underline">Privacidad</a> · <a href="https://axiomlabs.cl/terminos.html" class="hover:text-slate-600 underline">Términos y Condiciones</a></p>
-  </footer>
-
-  <!-- CTA sticky móvil -->
-  <div class="md:hidden fixed bottom-0 inset-x-0 z-40 p-3 bg-gradient-to-t from-white via-white/95 to-transparent">
-    <a href="https://app.rutag.cl" class="block text-center rounded-full bg-orange-600 active:bg-orange-700 text-white font-bold py-3.5 shadow-lg shadow-orange-600/30">Analiza tu auto gratis →</a>
+<!-- ===== HEADER ===== -->
+<header style="position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(15,15,15,.72);border-bottom:1px solid rgba(255,255,255,.07)">
+  <div style="max-width:1200px;margin:0 auto;padding:1rem clamp(1.5rem,5vw,2rem);display:flex;align-items:center;justify-content:space-between;gap:1rem">
+    <a href="#top" style="display:flex;align-items:center;gap:.5rem;color:#FAFAF8;font-family:'Outfit';font-weight:800;font-size:1.4rem;letter-spacing:-.02em">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:#FF6B35;border-radius:7px;color:#fff;font-size:1rem;line-height:1">G</span>
+      <span>Ruta<span style="color:#FF6B35">G</span></span>
+    </a>
+    <a href="#patente" class="cta-flat" style="background:#FF6B35;color:#fff;font-family:'Outfit';font-weight:700;font-size:.95rem;padding:.6rem 1.25rem;border-radius:10px;box-shadow:0 4px 18px rgba(255,107,53,.35);transition:filter .25s ease">Analizar mi auto</a>
   </div>
-  <div class="md:hidden h-20"></div><!-- espacio para que el sticky no tape el footer -->
+</header>
 
-  <script>
-    // Simulador — misma data que el landing corporativo
-    const calculatorData = {
-      "toyota": {
-        "10000": { saving: "$55.000 CLP", tasks: ["Inspección de niveles y fluidos generales", "Cambio de aceite sintético (5W30) y filtro original", "Rotación de neumáticos", "Inspección de frenos de disco delanteros"] },
-        "20000": { saving: "$80.000 CLP", tasks: ["Cambio de aceite de motor y filtro", "Cambio de filtro de aire de motor", "Alineación y balanceo", "Inspección de pastillas de freno y bujías"] },
-        "40000": { saving: "$120.000 CLP", tasks: ["Cambio completo de aceite sintético y filtros", "Cambio de líquido de frenos DOT4", "Cambio de filtro de polen de cabina", "Limpieza de frenos traseros y rectificación"] },
-        "60000": { saving: "$150.000 CLP", tasks: ["Cambio de aceite y filtro", "Cambio de bujías de encendido de iridio", "Inspección de correas de accesorios", "Limpieza de cuerpo de aceleración"] },
-        "100000": { saving: "$210.000 CLP", tasks: ["Cambio de aceite de motor y filtro", "Reemplazo de refrigerante de motor (Long Life)", "Cambio de aceite de transmisión automática/manual", "Inspección de kit de suspensión y amortiguadores"] }
-      },
-      "hyundai": {
-        "10000": { saving: "$50.000 CLP", tasks: ["Cambio de aceite sintético (5W30) y filtro", "Revisión de pastillas de freno y desgaste", "Ajuste de freno de estacionamiento", "Escaneo de códigos de error OBD-II"] },
-        "20000": { saving: "$75.000 CLP", tasks: ["Cambio de aceite y filtro de motor", "Reemplazo de filtro de polen (A/C)", "Rotación y balanceo de ruedas", "Revisión de bujes de suspensión"] },
-        "40000": { saving: "$110.000 CLP", tasks: ["Cambio de aceite sintético y filtro", "Reemplazo de filtro de gasolina de estanque", "Cambio de líquido de frenos y purgado de cañerías", "Alineación de dirección"] },
-        "60000": { saving: "$140.000 CLP", tasks: ["Cambio de aceite y filtro", "Cambio de bujías e inspección de cables de encendido", "Inspección visual de kit de embrague", "Revisión de tensión de alternador"] },
-        "100000": { saving: "$190.000 CLP", tasks: ["Cambio de aceite y filtro de motor", "Cambio de correa de alternador y bomba de agua", "Revisión de radiador y fugas", "Escaneo computarizado completo de la ECU"] }
-      },
-      "kia": {
-        "10000": { saving: "$50.000 CLP", tasks: ["Cambio de aceite sintético y filtro", "Revisión de frenos y pastillas", "Inspección de niveles generales", "Escaneo OBD-II preventivo"] },
-        "20000": { saving: "$75.000 CLP", tasks: ["Cambio de aceite y filtro de motor", "Rotación de neumáticos", "Cambio de filtro de aire de cabina", "Revisión de bujías e ignición"] },
-        "40000": { saving: "$110.000 CLP", tasks: ["Cambio de aceite sintético y filtro", "Cambio de líquido de frenos DOT4", "Alineación y balanceo", "Inspección de correas de accesorios"] },
-        "60000": { saving: "$140.000 CLP", tasks: ["Cambio de aceite y filtro", "Reemplazo de bujías de iridio", "Cambio de filtro de combustible", "Revisión de suspensión y dirección"] },
-        "100000": { saving: "$190.000 CLP", tasks: ["Cambio de aceite y filtro de motor", "Cambio de aceite de caja automática", "Reemplazo de refrigerante de motor", "Inspección completa de tren motriz"] }
-      },
-      "mazda": {
-        "10000": { saving: "$55.000 CLP", tasks: ["Cambio de aceite SkyActiv y filtro", "Revisión de frenos y calibración", "Inspección de sistema eléctrico", "Rotación de neumáticos"] },
-        "20000": { saving: "$80.000 CLP", tasks: ["Cambio de aceite y filtro", "Cambio de filtro de aire motor", "Alineación de dirección", "Revisión de pastillas y discos"] },
-        "40000": { saving: "$115.000 CLP", tasks: ["Cambio de aceite SkyActiv y filtros", "Cambio de líquido de frenos", "Cambio de filtro de habitáculo", "Inspección de amortiguadores"] },
-        "60000": { saving: "$145.000 CLP", tasks: ["Cambio de aceite y filtro", "Reemplazo de bujías originales", "Revisión de sistema de escape", "Limpieza de inyectores"] },
-        "100000": { saving: "$200.000 CLP", tasks: ["Cambio de aceite y filtro de motor", "Cambio de aceite de transmisión", "Revisión de kit de distribución", "Inspección general de suspensión"] }
-      },
-      "ford": {
-        "10000": { saving: "$52.000 CLP", tasks: ["Cambio de aceite sintético y filtro", "Inspección de frenos traseros y delanteros", "Revisión de batería y alternador", "Rotación de neumáticos"] },
-        "20000": { saving: "$78.000 CLP", tasks: ["Cambio de aceite y filtro de motor", "Cambio de filtro de aire", "Alineación y balanceo en dos ejes", "Revisión de bujes y rótulas"] },
-        "40000": { saving: "$115.000 CLP", tasks: ["Cambio de aceite EcoBoost y filtro", "Cambio de líquido de frenos", "Inspección de correa de accesorios", "Cambio de filtro de combustible"] },
-        "60000": { saving: "$145.000 CLP", tasks: ["Cambio de aceite y filtro", "Reemplazo de bujías", "Revisión de sistema de transmisión", "Diagnóstico computarizado ECU"] },
-        "100000": { saving: "$195.000 CLP", tasks: ["Cambio de aceite y filtro de motor", "Cambio de aceite de caja de cambios", "Inspección de kit de embrague", "Revisión completa de chasis y suspensión"] }
-      },
-      "mitsubishi": {
-        "10000": { saving: "$48.000 CLP", tasks: ["Cambio de aceite sintético y filtro", "Revisión de frenos y desgaste de pastillas", "Inspección de luces y fusibles", "Control de presión de neumáticos"] },
-        "20000": { saving: "$72.000 CLP", tasks: ["Cambio de aceite y filtro de motor", "Cambio de filtro de aire de admisión", "Rotación de neumáticos", "Revisión de sistema de dirección"] },
-        "40000": { saving: "$108.000 CLP", tasks: ["Cambio de aceite y filtros", "Cambio de líquido de frenos y purga", "Alineación y balanceo", "Inspección de diferencial 4WD"] },
-        "60000": { saving: "$138.000 CLP", tasks: ["Cambio de aceite y filtro", "Reemplazo de bujías de motor", "Revisión de correa de distribución", "Cambio de aceite de transferencia"] },
-        "100000": { saving: "$185.000 CLP", tasks: ["Cambio de aceite y filtro de motor", "Cambio de aceite de caja y diferencial", "Inspección de sistema 4WD completo", "Revisión de suspensión delantera y trasera"] }
-      },
-      "general": {
-        "10000": { saving: "$45.000 CLP", tasks: ["Cambio de aceite de motor y filtro", "Revisión de luces, batería y fusibles", "Rotación de neumáticos básica"] },
-        "20000": { saving: "$70.000 CLP", tasks: ["Cambio de aceite y filtro", "Cambio de filtro de aire de admisión", "Alineación y balanceo en dos ejes", "Inspección general de frenos"] },
-        "40000": { saving: "$105.000 CLP", tasks: ["Cambio de aceite de motor y filtros", "Cambio de líquido de frenos", "Inspección visual de correas, mangueras e hidráulico"] },
-        "60000": { saving: "$130.000 CLP", tasks: ["Cambio de aceite y filtro", "Reemplazo de bujías de motor", "Limpieza de frenos traseros y testeo de gases"] },
-        "100000": { saving: "$180.000 CLP", tasks: ["Cambio de aceite y filtro de motor", "Cambio de aceite de caja de transmisión", "Inspección de amortiguadores y extremos de dirección"] }
-      }
-    };
+<!-- ===== HERO ===== -->
+<section id="top" style="position:relative;padding:clamp(3rem,7vw,5.5rem) clamp(1.5rem,5vw,2rem) clamp(3.5rem,8vw,6rem)">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:clamp(2.5rem,5vw,4.5rem);align-items:center">
+    <div>
+      <div style="font-family:'IBM Plex Mono';font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#FF6B35;margin-bottom:1.4rem;animation:revealUp .7s ease-out both">Mantención vehicular</div>
+      <h1 style="font-family:'Outfit';font-weight:800;font-size:clamp(2.4rem,5.5vw,4rem);line-height:1.04;letter-spacing:-.03em;margin:0 0 1.4rem;animation:revealUp .7s ease-out .05s both">Ingresa tu patente.<br><span style="color:#FF6B35">Sabremos qué necesita tu auto.</span></h1>
+      <p style="font-size:1.12rem;line-height:1.55;color:#A0A0A0;max-width:32rem;margin:0 0 2rem;animation:revealUp .7s ease-out .1s both">Recomendaciones basadas en el manual oficial de tu marca. Talleres verificados. Cotizaciones claras.</p>
 
-    document.getElementById("btn-calculate").addEventListener("click", function() {
-      const make = document.getElementById("vehicle-make");
-      const fuel = document.getElementById("vehicle-fuel");
-      const mileage = document.getElementById("vehicle-mileage");
-      const data = (calculatorData[make.value] || calculatorData.general)[mileage.value] || calculatorData.general[mileage.value];
+      <!-- PATENTE INPUT (hero) -->
+      <div id="patente" style="display:flex;flex-wrap:wrap;gap:.75rem;max-width:34rem;animation:revealUp .7s ease-out .15s both">
+        <input id="plate1" class="plate" placeholder="BBBB·12" maxlength="9" autocapitalize="characters" autocomplete="off" style="flex:1;min-width:180px;background:#161616;border:1.5px solid rgba(255,255,255,.12);border-radius:12px;padding:1rem 1.25rem;font-family:'IBM Plex Mono';font-weight:600;font-size:1.25rem;letter-spacing:.12em;color:#FAFAF8;text-transform:uppercase;transition:border-color .25s ease,box-shadow .25s ease;outline:none">
+        <button id="analyze1" class="cta" style="background:#FF6B35;color:#fff;font-family:'Outfit';font-weight:700;font-size:1.05rem;padding:1rem 1.75rem;border:none;border-radius:12px;cursor:pointer;box-shadow:0 6px 22px rgba(255,107,53,.35);transition:filter .25s ease,transform .2s ease;white-space:nowrap">Analizar mi auto →</button>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:1.25rem;margin-top:1.25rem;animation:revealUp .7s ease-out .2s both">
+        <span style="display:inline-flex;align-items:center;gap:.4rem;font-size:.88rem;color:#A0A0A0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Manual oficial</span>
+        <span style="display:inline-flex;align-items:center;gap:.4rem;font-size:.88rem;color:#A0A0A0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Talleres verificados</span>
+        <span style="display:inline-flex;align-items:center;gap:.4rem;font-size:.88rem;color:#A0A0A0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Gratis</span>
+      </div>
+    </div>
 
-      document.getElementById("result-vehicle-name").textContent =
-        make.options[make.selectedIndex].text + " (" + fuel.options[fuel.selectedIndex].text + ") · " + mileage.options[mileage.selectedIndex].text;
-      document.getElementById("result-saving-clp").textContent = data.saving;
+    <!-- PHONE MOCKUP: compatibilidad -->
+    <div style="display:flex;justify-content:center;position:relative">
+      <div style="position:absolute;inset:-10% -5%;background:radial-gradient(circle at 55% 45%,rgba(255,107,53,.45),transparent 62%);filter:blur(50px);animation:glowPulse 5s ease-in-out infinite;z-index:0"></div>
+      <div style="position:relative;z-index:1;width:300px;max-width:82vw;animation:floatTilt 5.5s ease-in-out infinite;transform-style:preserve-3d">
+        <div style="background:#000;border:1px solid rgba(255,255,255,.14);border-radius:44px;padding:11px;box-shadow:0 40px 80px -24px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.04) inset">
+          <div style="position:relative;border-radius:34px;overflow:hidden;background:#0F0F0F;aspect-ratio:300/620">
+            <div style="position:absolute;top:9px;left:50%;transform:translateX(-50%);width:88px;height:22px;background:#000;border-radius:14px;z-index:5"></div>
+            <div style="height:100%;padding:44px 16px 18px;display:flex;flex-direction:column;gap:11px">
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <div style="font-family:'Outfit';font-weight:700;font-size:15px;color:#FAFAF8">Talleres para ti</div>
+                <div style="font-family:'IBM Plex Mono';font-size:10px;color:#A0A0A0;background:#1A1A1A;padding:3px 7px;border-radius:6px">GBLK·84</div>
+              </div>
+              <div style="font-size:11px;color:#A0A0A0;margin-bottom:1px">Ordenados por compatibilidad real</div>
 
-      const list = document.getElementById("result-tasks-container");
-      list.innerHTML = "";
-      data.tasks.forEach(t => {
-        const li = document.createElement("li");
-        li.textContent = "• " + t;
-        list.appendChild(li);
-      });
+              <div style="background:#151515;border:1px solid rgba(34,197,94,.35);border-radius:12px;padding:13px">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:9px">
+                  <div style="font-family:'Outfit';font-weight:600;font-size:13px;color:#FAFAF8">AutoServicio Int...</div>
+                  <div style="background:rgba(34,197,94,.16);color:#22C55E;font-family:'IBM Plex Mono';font-weight:600;font-size:12px;padding:3px 8px;border-radius:7px">100%</div>
+                </div>
+                <div style="height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;margin-bottom:9px"><div style="width:100%;height:100%;background:#22C55E;border-radius:3px"></div></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-size:11px;color:#22C55E;display:flex;align-items:center;gap:5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Hace los 5 servicios</span><span style="font-size:11px;color:#A0A0A0;display:flex;align-items:center;gap:4px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.4-8 12-8 12s-8-7.6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>2.3 km</span></div>
+              </div>
 
-      document.getElementById("results-placeholder").style.display = "none";
-      document.getElementById("results-content").style.display = "block";
-      document.getElementById("calc-result-panel").classList.remove("border-dashed");
-    });
-  </script>
+              <div style="background:#151515;border:1px solid rgba(234,179,8,.28);border-radius:12px;padding:13px">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:9px">
+                  <div style="font-family:'Outfit';font-weight:600;font-size:13px;color:#FAFAF8">Mecánica Autom...</div>
+                  <div style="background:rgba(234,179,8,.16);color:#EAB308;font-family:'IBM Plex Mono';font-weight:600;font-size:12px;padding:3px 8px;border-radius:7px">40%</div>
+                </div>
+                <div style="height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;margin-bottom:9px"><div style="width:40%;height:100%;background:#EAB308;border-radius:3px"></div></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-size:11px;color:#A0A0A0">Hace 2 de 5 servicios</span><span style="font-size:11px;color:#A0A0A0;display:flex;align-items:center;gap:4px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.4-8 12-8 12s-8-7.6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>4.1 km</span></div>
+              </div>
+
+              <div style="background:#151515;border:1px solid rgba(234,179,8,.22);border-radius:12px;padding:13px">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:9px">
+                  <div style="font-family:'Outfit';font-weight:600;font-size:13px;color:#FAFAF8">Lubricentro Expr...</div>
+                  <div style="background:rgba(234,179,8,.16);color:#EAB308;font-family:'IBM Plex Mono';font-weight:600;font-size:12px;padding:3px 8px;border-radius:7px">20%</div>
+                </div>
+                <div style="height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;margin-bottom:9px"><div style="width:20%;height:100%;background:#EAB308;border-radius:3px"></div></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-size:11px;color:#A0A0A0">Hace 1 de 5 servicios</span><span style="font-size:11px;color:#A0A0A0;display:flex;align-items:center;gap:4px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.4-8 12-8 12s-8-7.6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>5.8 km</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CÓMO FUNCIONA ===== -->
+<section id="como" style="padding:clamp(3rem,8vw,6rem) clamp(1.5rem,5vw,2rem);border-top:1px solid rgba(255,255,255,.06)">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="max-width:36rem;margin:0 0 clamp(2.5rem,5vw,3.5rem)">
+      <div style="font-family:'IBM Plex Mono';font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#FF6B35;margin-bottom:.9rem">Cómo funciona</div>
+      <h2 style="font-family:'Outfit';font-weight:800;font-size:clamp(1.9rem,4.5vw,2.5rem);line-height:1.12;letter-spacing:-.02em;margin:0">De la patente al taller correcto.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(1.5rem,3vw,2rem)">
+
+      <div style="background:#151515;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:1.75rem">
+        <div style="font-family:'IBM Plex Mono';font-size:.76rem;color:#FF6B35;letter-spacing:.1em;margin-bottom:1rem">PASO 01</div>
+        <h3 style="font-family:'Outfit';font-weight:700;font-size:1.25rem;margin:0 0 .5rem">Ingresas tu patente</h3>
+        <p style="color:#A0A0A0;font-size:1rem;line-height:1.5;margin:0 0 1.5rem">Detectamos marca, modelo, año y motor automáticamente.</p>
+        <div style="background:#0F0F0F;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1.25rem;text-align:center">
+          <div style="font-family:'IBM Plex Mono';font-size:.66rem;letter-spacing:.16em;color:#A0A0A0;margin-bottom:.6rem">PATENTE</div>
+          <div style="font-family:'IBM Plex Mono';font-weight:600;font-size:1.9rem;letter-spacing:.1em;color:#FAFAF8">BBBB·12<span style="display:inline-block;width:3px;height:1.5rem;background:#FF6B35;margin-left:4px;vertical-align:middle;animation:caret 1s step-end infinite"></span></div>
+          <div style="font-size:.72rem;color:#22C55E;margin-top:.7rem">Toyota Yaris 1.5 · 2019 detectado</div>
+        </div>
+      </div>
+
+      <div style="background:#151515;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:1.75rem">
+        <div style="font-family:'IBM Plex Mono';font-size:.76rem;color:#FF6B35;letter-spacing:.1em;margin-bottom:1rem">PASO 02</div>
+        <h3 style="font-family:'Outfit';font-weight:700;font-size:1.25rem;margin:0 0 .5rem">Ves qué le toca</h3>
+        <p style="color:#A0A0A0;font-size:1rem;line-height:1.5;margin:0 0 1.5rem">Recomendaciones directas del manual oficial. No adivinamos, no vendemos.</p>
+        <div style="background:#0F0F0F;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1.1rem">
+          <div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.55rem"><span style="color:#A0A0A0">Diagnóstico</span><span style="font-family:'IBM Plex Mono';color:#FAFAF8">$45.000</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.55rem"><span style="color:#A0A0A0">Cambio de aceite</span><span style="font-family:'IBM Plex Mono';color:#FAFAF8">$55.000</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.75rem"><span style="color:#A0A0A0">Frenos</span><span style="font-family:'IBM Plex Mono';color:#FAFAF8">$25.000</span></div>
+          <div style="height:1px;background:rgba(255,255,255,.1);margin-bottom:.75rem"></div>
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:'Outfit';font-weight:700;font-size:.9rem">Total</span><span style="font-family:'IBM Plex Mono';font-weight:600;color:#FF6B35;font-size:1.05rem">$185.000</span></div>
+        </div>
+      </div>
+
+      <div style="background:#151515;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:1.75rem">
+        <div style="font-family:'IBM Plex Mono';font-size:.76rem;color:#FF6B35;letter-spacing:.1em;margin-bottom:1rem">PASO 03</div>
+        <h3 style="font-family:'Outfit';font-weight:700;font-size:1.25rem;margin:0 0 .5rem">Eliges taller y agendas</h3>
+        <p style="color:#A0A0A0;font-size:1rem;line-height:1.5;margin:0 0 1.5rem">Solo talleres que realmente hacen los servicios que tu auto necesita.</p>
+        <div style="background:#0F0F0F;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1.1rem;display:flex;flex-direction:column;gap:.7rem">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:.82rem;color:#FAFAF8">AutoServicio Int...</span><span style="background:rgba(34,197,94,.16);color:#22C55E;font-family:'IBM Plex Mono';font-weight:600;font-size:.72rem;padding:2px 7px;border-radius:6px">100%</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:.82rem;color:#A0A0A0">Mecánica Autom...</span><span style="background:rgba(234,179,8,.16);color:#EAB308;font-family:'IBM Plex Mono';font-weight:600;font-size:.72rem;padding:2px 7px;border-radius:6px">40%</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:.82rem;color:#A0A0A0">Lubricentro Expr...</span><span style="background:rgba(234,179,8,.16);color:#EAB308;font-family:'IBM Plex Mono';font-weight:600;font-size:.72rem;padding:2px 7px;border-radius:6px">20%</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPATIBILIDAD ===== -->
+<section style="padding:clamp(3rem,8vw,6rem) clamp(1.5rem,5vw,2rem);border-top:1px solid rgba(255,255,255,.06)">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(2.5rem,5vw,4.5rem);align-items:center">
+    <div>
+      <div style="font-family:'IBM Plex Mono';font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#FF6B35;margin-bottom:.9rem">Compatibilidad</div>
+      <h2 style="font-family:'Outfit';font-weight:800;font-size:clamp(1.9rem,4.2vw,2.5rem);line-height:1.14;letter-spacing:-.02em;margin:0 0 1.25rem">No todos los talleres hacen todo. Nosotros te decimos cuáles sí.</h2>
+      <p style="color:#A0A0A0;font-size:1.12rem;line-height:1.6;margin:0 0 1.5rem;max-width:32rem">Ruta G analiza qué servicios necesita tu auto y los cruza con lo que cada taller realmente ofrece. Nada de llegar y descubrir que "ese trabajo no lo hacemos".</p>
+      <div style="display:flex;gap:1.5rem;flex-wrap:wrap">
+        <div><div style="font-family:'Outfit';font-weight:800;font-size:1.6rem;color:#22C55E">100%</div><div style="font-size:.85rem;color:#A0A0A0">Hace todo</div></div>
+        <div><div style="font-family:'Outfit';font-weight:800;font-size:1.6rem;color:#EAB308">40%</div><div style="font-size:.85rem;color:#A0A0A0">Hace parte</div></div>
+        <div><div style="font-family:'Outfit';font-weight:800;font-size:1.6rem;color:#EAB308">20%</div><div style="font-size:.85rem;color:#A0A0A0">Hace poco</div></div>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:center;position:relative">
+      <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(255,107,53,.28),transparent 65%);filter:blur(50px)"></div>
+      <div style="position:relative;z-index:1;width:330px;max-width:88vw;background:#000;border:1px solid rgba(255,255,255,.14);border-radius:28px;padding:10px;box-shadow:0 40px 80px -30px rgba(0,0,0,.85);animation:floatSoft 6s ease-in-out infinite">
+        <div style="background:#0F0F0F;border-radius:20px;padding:20px 18px;display:flex;flex-direction:column;gap:13px">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div style="font-family:'Outfit';font-weight:700;font-size:16px;color:#FAFAF8">Talleres compatibles</div>
+            <div style="font-family:'IBM Plex Mono';font-size:11px;color:#A0A0A0;background:#1A1A1A;padding:4px 8px;border-radius:7px">GBLK·84</div>
+          </div>
+
+          <div style="background:#161616;border:1px solid rgba(34,197,94,.4);border-radius:14px;padding:15px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+              <div style="font-family:'Outfit';font-weight:600;font-size:14px;color:#FAFAF8">AutoServicio Integral</div>
+              <div style="background:rgba(34,197,94,.16);color:#22C55E;font-family:'IBM Plex Mono';font-weight:600;font-size:13px;padding:4px 9px;border-radius:8px">100%</div>
+            </div>
+            <div style="height:6px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden;margin-bottom:10px"><div style="width:100%;height:100%;background:#22C55E;border-radius:4px"></div></div>
+            <div style="font-size:12px;color:#22C55E;display:flex;align-items:center;gap:6px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Hace los 5 servicios que necesitas</div>
+          </div>
+
+          <div style="background:#161616;border:1px solid rgba(234,179,8,.3);border-radius:14px;padding:15px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+              <div style="font-family:'Outfit';font-weight:600;font-size:14px;color:#FAFAF8">Mecánica Automotriz</div>
+              <div style="background:rgba(234,179,8,.16);color:#EAB308;font-family:'IBM Plex Mono';font-weight:600;font-size:13px;padding:4px 9px;border-radius:8px">40%</div>
+            </div>
+            <div style="height:6px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden;margin-bottom:10px"><div style="width:40%;height:100%;background:#EAB308;border-radius:4px"></div></div>
+            <div style="font-size:12px;color:#A0A0A0">Hace 2 de 5 servicios</div>
+          </div>
+
+          <div style="background:#161616;border:1px solid rgba(234,179,8,.24);border-radius:14px;padding:15px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+              <div style="font-family:'Outfit';font-weight:600;font-size:14px;color:#FAFAF8">Lubricentro Express</div>
+              <div style="background:rgba(234,179,8,.16);color:#EAB308;font-family:'IBM Plex Mono';font-weight:600;font-size:13px;padding:4px 9px;border-radius:8px">20%</div>
+            </div>
+            <div style="height:6px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden;margin-bottom:10px"><div style="width:20%;height:100%;background:#EAB308;border-radius:4px"></div></div>
+            <div style="font-size:12px;color:#A0A0A0">Hace 1 de 5 servicios</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TALLERES CERCA DE TI ===== -->
+<section style="padding:clamp(3rem,8vw,6rem) clamp(1.5rem,5vw,2rem);border-top:1px solid rgba(255,255,255,.06)">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(2.5rem,5vw,4.5rem);align-items:center">
+    <div>
+      <div style="font-family:'IBM Plex Mono';font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#FF6B35;margin-bottom:.9rem">Cercanía</div>
+      <h2 style="font-family:'Outfit';font-weight:800;font-size:clamp(1.9rem,4.2vw,2.5rem);line-height:1.14;letter-spacing:-.02em;margin:0 0 1.1rem">Los talleres compatibles, ordenados por cercanía.</h2>
+      <p style="color:#A0A0A0;font-size:1.12rem;line-height:1.6;margin:0 0 2rem;max-width:32rem">Ves quiénes están más cerca, cuánto demoras en llegar, y qué tan compatibles son con lo que tu auto necesita.</p>
+      <div style="display:flex;flex-direction:column;gap:1.1rem;margin-bottom:2rem">
+        <div style="display:flex;align-items:flex-start;gap:.85rem">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px"><path d="M20 10c0 4.4-8 12-8 12s-8-7.6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span style="font-size:1.02rem;color:#c9c9c9;line-height:1.45">Distancia real en km desde tu ubicación.</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:.85rem">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+          <span style="font-size:1.02rem;color:#c9c9c9;line-height:1.45">Tiempo estimado de viaje en auto.</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:.85rem">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px"><path d="m3 16 4 4 4-4"></path><path d="M7 20V4"></path><path d="M11 4h10"></path><path d="M11 8h7"></path><path d="M11 12h4"></path></svg>
+          <span style="font-size:1.02rem;color:#c9c9c9;line-height:1.45">Ordenados por cercanía y compatibilidad.</span>
+        </div>
+      </div>
+      <a href="#patente" class="ghost-orange" style="display:inline-flex;align-items:center;gap:.5rem;background:transparent;border:1.5px solid rgba(255,107,53,.5);color:#FF6B35;font-family:'Outfit';font-weight:600;font-size:1rem;padding:.85rem 1.6rem;border-radius:10px;transition:background .25s ease">Ver talleres cerca de mí →</a>
+    </div>
+
+    <!-- PHONE MOCKUP: mapa oscuro -->
+    <div style="display:flex;justify-content:center;position:relative">
+      <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 42%,rgba(255,107,53,.26),transparent 65%);filter:blur(50px)"></div>
+      <div style="position:relative;z-index:1;width:300px;max-width:82vw;animation:floatSoft 6s ease-in-out infinite">
+        <div style="background:#000;border:1px solid rgba(255,255,255,.14);border-radius:44px;padding:11px;box-shadow:0 40px 80px -28px rgba(0,0,0,.85)">
+          <div style="position:relative;border-radius:34px;overflow:hidden;background:#0F0F0F;aspect-ratio:300/620">
+            <div style="position:absolute;top:9px;left:50%;transform:translateX(-50%);width:88px;height:22px;background:#000;border-radius:14px;z-index:8"></div>
+            <div style="position:absolute;inset:0;background:#0F0F0F;overflow:hidden">
+              <div style="position:absolute;right:-22%;top:-14%;width:62%;height:48%;background:#0A1929;border-radius:48% 52% 55% 45%;transform:rotate(14deg)"></div>
+              <div style="position:absolute;left:-26%;bottom:-20%;width:70%;height:52%;background:#0A1929;border-radius:50% 50% 45% 55%;transform:rotate(-10deg)"></div>
+              <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,transparent 0 44px,rgba(255,255,255,.04) 44px 45px),repeating-linear-gradient(0deg,transparent 0 44px,rgba(255,255,255,.04) 44px 45px)"></div>
+              <div style="position:absolute;top:34%;left:-5%;right:-5%;height:6px;background:#2A2A2A;border-radius:3px"></div>
+              <div style="position:absolute;top:66%;left:-5%;right:-5%;height:5px;background:#242424;border-radius:3px"></div>
+              <div style="position:absolute;top:-5%;bottom:-5%;left:42%;width:6px;background:#2A2A2A;border-radius:3px"></div>
+              <div style="position:absolute;top:-10%;left:20%;width:6px;height:135%;background:#242424;border-radius:3px;transform:rotate(32deg);transform-origin:top center"></div>
+
+              <div style="position:absolute;top:20%;left:68%;transform:translate(-50%,-50%);width:18px;height:18px;border-radius:50%;background:#EAB308;border:2.5px solid #0F0F0F;box-shadow:0 0 0 1.5px #EAB308,0 4px 10px rgba(0,0,0,.5);z-index:4"></div>
+              <div style="position:absolute;top:74%;left:30%;transform:translate(-50%,-50%);width:18px;height:18px;border-radius:50%;background:#EAB308;border:2.5px solid #0F0F0F;box-shadow:0 0 0 1.5px #EAB308,0 4px 10px rgba(0,0,0,.5);z-index:4"></div>
+
+              <div style="position:absolute;top:26%;left:34%;transform:translate(-50%,-50%);z-index:6">
+                <div style="position:absolute;top:50%;left:50%;width:32px;height:32px;margin:-16px 0 0 -16px;border-radius:50%;background:rgba(34,197,94,.35);animation:pulseRing 2.6s ease-out infinite"></div>
+                <div style="position:relative;width:34px;height:34px;border-radius:50%;background:#22C55E;border:3px solid #0F0F0F;box-shadow:0 0 0 2px #22C55E,0 6px 16px rgba(34,197,94,.45);display:flex;align-items:center;justify-content:center">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0F0F0F" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+                </div>
+              </div>
+
+              <div style="position:absolute;top:56%;left:52%;transform:translate(-50%,-50%);z-index:5">
+                <div style="position:absolute;top:50%;left:50%;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:rgba(255,107,53,.45);animation:pulseRing 2.2s ease-out infinite"></div>
+                <div style="position:relative;width:16px;height:16px;border-radius:50%;background:#FF6B35;border:3px solid #0F0F0F;box-shadow:0 0 0 2px #FF6B35"></div>
+              </div>
+
+              <div style="position:absolute;left:12px;right:12px;bottom:14px;background:#151515;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:13px;box-shadow:0 12px 30px rgba(0,0,0,.55);z-index:7">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+                  <div style="font-family:'Outfit';font-weight:600;font-size:13.5px;color:#FAFAF8">AutoServicio Integral</div>
+                  <div style="background:rgba(34,197,94,.16);color:#22C55E;font-family:'IBM Plex Mono';font-weight:600;font-size:10.5px;padding:3px 7px;border-radius:6px">100%</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:11px;color:#A0A0A0;font-size:11px">
+                  <span style="display:inline-flex;align-items:center;gap:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.4-8 12-8 12s-8-7.6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>2.3 km</span>
+                  <span style="display:inline-flex;align-items:center;gap:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#A0A0A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>8 min en auto</span>
+                </div>
+                <div style="width:100%;background:#FF6B35;color:#fff;font-family:'Outfit';font-weight:700;font-size:12.5px;padding:9px;border:none;border-radius:8px;text-align:center">Agendar aquí</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COTIZACIONES TRANSPARENTES ===== -->
+<section style="padding:clamp(3rem,8vw,6rem) clamp(1.5rem,5vw,2rem);border-top:1px solid rgba(255,255,255,.06)">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(2.5rem,5vw,4.5rem);align-items:center">
+    <div style="display:flex;justify-content:center;order:2">
+      <div style="width:360px;max-width:92vw;background:#151515;border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:1.75rem 1.5rem;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.35rem">
+          <div style="font-family:'Outfit';font-weight:700;font-size:1.15rem">Tu Toyota necesita</div>
+        </div>
+        <div style="font-size:.8rem;color:#A0A0A0;font-family:'IBM Plex Mono';margin-bottom:1.4rem">Según manual oficial · 60.000 km</div>
+        <div style="display:flex;flex-direction:column;gap:.9rem">
+          <div style="display:flex;justify-content:space-between;font-size:.98rem"><span style="color:#A0A0A0">Diagnóstico</span><span style="font-family:'IBM Plex Mono';color:#FAFAF8">$45.000</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:.98rem"><span style="color:#A0A0A0">Cambio de aceite</span><span style="font-family:'IBM Plex Mono';color:#FAFAF8">$55.000</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:.98rem"><span style="color:#A0A0A0">Frenos</span><span style="font-family:'IBM Plex Mono';color:#FAFAF8">$25.000</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:.98rem"><span style="color:#A0A0A0">Filtro de aire</span><span style="font-family:'IBM Plex Mono';color:#FAFAF8">$30.000</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:.98rem"><span style="color:#A0A0A0">Revisión general</span><span style="font-family:'IBM Plex Mono';color:#FAFAF8">$30.000</span></div>
+        </div>
+        <div style="height:1px;background:rgba(255,255,255,.1);margin:1.25rem 0"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:'Outfit';font-weight:700;font-size:1.1rem">Total estimado</span><span style="font-family:'IBM Plex Mono';font-weight:600;color:#FF6B35;font-size:1.4rem">$185.000</span></div>
+      </div>
+    </div>
+    <div style="order:1">
+      <div style="font-family:'IBM Plex Mono';font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#FF6B35;margin-bottom:.9rem">Cotizaciones</div>
+      <h2 style="font-family:'Outfit';font-weight:800;font-size:clamp(1.9rem,4.2vw,2.5rem);line-height:1.14;letter-spacing:-.02em;margin:0 0 1.25rem">Sabes exactamente qué pagas antes de ir.</h2>
+      <p style="color:#A0A0A0;font-size:1.12rem;line-height:1.6;margin:0 0 1.25rem;max-width:32rem">Sin sorpresas, sin letra chica. Cada servicio desglosado con su valor referencial.</p>
+      <p style="color:#6a6a6a;font-size:.9rem;line-height:1.5;margin:0;max-width:30rem">Valores referenciales de mercado. El taller confirma el precio final, tú decides si aceptar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AUTORIDAD ===== -->
+<section style="padding:clamp(3rem,8vw,6rem) clamp(1.5rem,5vw,2rem);border-top:1px solid rgba(255,255,255,.06);text-align:center">
+  <div style="max-width:900px;margin:0 auto">
+    <div style="font-family:'IBM Plex Mono';font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#FF6B35;margin-bottom:.9rem">Autoridad</div>
+    <h2 style="font-family:'Outfit';font-weight:800;font-size:clamp(1.9rem,4.5vw,2.5rem);line-height:1.12;letter-spacing:-.02em;margin:0 0 1.25rem">Los datos que usamos vienen del fabricante. Punto.</h2>
+    <p style="color:#A0A0A0;font-size:1.12rem;line-height:1.6;margin:0 auto 3rem;max-width:40rem">Usamos los manuales técnicos oficiales de cada marca, según kilometraje y modelo. Nada de estimaciones genéricas.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1.5rem 1rem;max-width:820px;margin:0 auto">
+      <div class="brandi" style="font-family:'Outfit';font-weight:700;font-size:1.15rem;letter-spacing:.02em;color:#6a6a6a;transition:color .25s ease">Toyota</div>
+      <div class="brandi" style="font-family:'Outfit';font-weight:700;font-size:1.15rem;letter-spacing:.02em;color:#6a6a6a;transition:color .25s ease">Hyundai</div>
+      <div class="brandi" style="font-family:'Outfit';font-weight:700;font-size:1.15rem;letter-spacing:.02em;color:#6a6a6a;transition:color .25s ease">Kia</div>
+      <div class="brandi" style="font-family:'Outfit';font-weight:700;font-size:1.15rem;letter-spacing:.02em;color:#6a6a6a;transition:color .25s ease">Chevrolet</div>
+      <div class="brandi" style="font-family:'Outfit';font-weight:700;font-size:1.15rem;letter-spacing:.02em;color:#6a6a6a;transition:color .25s ease">Nissan</div>
+      <div class="brandi" style="font-family:'Outfit';font-weight:700;font-size:1.15rem;letter-spacing:.02em;color:#6a6a6a;transition:color .25s ease">Mazda</div>
+      <div class="brandi" style="font-family:'Outfit';font-weight:700;font-size:1.15rem;letter-spacing:.02em;color:#6a6a6a;transition:color .25s ease">Ford</div>
+      <div class="brandi" style="font-family:'Outfit';font-weight:700;font-size:1.15rem;letter-spacing:.02em;color:#6a6a6a;transition:color .25s ease">Mitsubishi</div>
+      <div class="brandi" style="font-family:'Outfit';font-weight:700;font-size:1.15rem;letter-spacing:.02em;color:#6a6a6a;transition:color .25s ease">Suzuki</div>
+      <div class="brandi" style="font-family:'Outfit';font-weight:700;font-size:1.15rem;letter-spacing:.02em;color:#6a6a6a;transition:color .25s ease">Peugeot</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PARA TALLERES ===== -->
+<section id="talleres" style="padding:clamp(3rem,8vw,6rem) clamp(1.5rem,5vw,2rem);border-top:1px solid rgba(255,255,255,.06)">
+  <div style="max-width:1000px;margin:0 auto;background:linear-gradient(180deg,rgba(10,25,41,.6),rgba(10,25,41,.25));border:1px solid rgba(120,170,230,.14);border-radius:20px;padding:clamp(2rem,5vw,3.25rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(2rem,4vw,3rem);align-items:center">
+    <div>
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:rgba(120,170,230,.12);border:1px solid rgba(120,170,230,.2);border-radius:12px;margin-bottom:1.25rem">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8fb4e6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+      </div>
+      <h2 style="font-family:'Outfit';font-weight:800;font-size:clamp(1.6rem,3.5vw,2.1rem);line-height:1.15;letter-spacing:-.02em;margin:0 0 1rem">¿Eres taller?</h2>
+      <p style="color:#A0A0A0;font-size:1.08rem;line-height:1.55;margin:0;max-width:26rem">Recibe trabajos que sí puedes hacer, cotizados con ayuda de IA. Sin costo en beta.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1.25rem">
+      <div style="padding-left:1.1rem;border-left:2px solid rgba(120,170,230,.35);color:#c9d6e8;font-size:1rem;line-height:1.45">Clientes que ya saben qué necesitan.</div>
+      <div style="padding-left:1.1rem;border-left:2px solid rgba(120,170,230,.35);color:#c9d6e8;font-size:1rem;line-height:1.45">Solo recibes trabajos compatibles con tu taller.</div>
+      <div style="padding-left:1.1rem;border-left:2px solid rgba(120,170,230,.35);color:#c9d6e8;font-size:1rem;line-height:1.45">Cobras directo, sin intermediarios.</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.85rem;margin-top:.5rem">
+        <a href="https://talleres.axiomlabs.cl/taller/registro.php" class="cta-flat" style="background:#FF6B35;color:#fff;font-family:'Outfit';font-weight:700;font-size:.98rem;padding:.85rem 1.6rem;border-radius:10px;transition:filter .25s ease">Conectar taller</a>
+        <a href="https://talleres.axiomlabs.cl/taller/login.php" class="ghost-blue" style="background:transparent;border:1.5px solid rgba(143,180,230,.5);color:#c9d6e8;font-family:'Outfit';font-weight:600;font-size:.98rem;padding:.85rem 1.6rem;border-radius:10px;transition:background .25s ease">Ya tengo cuenta</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" style="padding:clamp(3rem,8vw,6rem) clamp(1.5rem,5vw,2rem);border-top:1px solid rgba(255,255,255,.06)">
+  <div style="max-width:760px;margin:0 auto">
+    <div style="font-family:'IBM Plex Mono';font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#FF6B35;margin-bottom:.9rem">Preguntas frecuentes</div>
+    <h2 style="font-family:'Outfit';font-weight:800;font-size:clamp(1.9rem,4.5vw,2.5rem);line-height:1.12;letter-spacing:-.02em;margin:0 0 clamp(2rem,4vw,3rem)">Todo lo que quieres saber.</h2>
+    <div id="faq-list" style="border-top:1px solid rgba(255,255,255,.1)"></div>
+  </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section style="position:relative;padding:clamp(4rem,9vw,7rem) clamp(1.5rem,5vw,2rem);border-top:1px solid rgba(255,255,255,.06);text-align:center;overflow:hidden">
+  <div style="position:absolute;inset:auto 0 -40% 0;height:80%;background:radial-gradient(ellipse at 50% 100%,rgba(255,107,53,.22),transparent 70%);pointer-events:none"></div>
+  <div style="position:relative;max-width:640px;margin:0 auto">
+    <h2 style="font-family:'Outfit';font-weight:800;font-size:clamp(2.2rem,6vw,3.4rem);line-height:1.05;letter-spacing:-.03em;margin:0 0 1.75rem">Empieza por tu patente.</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:.75rem;max-width:34rem;margin:0 auto">
+      <input id="plate2" class="plate" placeholder="BBBB·12" maxlength="9" autocapitalize="characters" autocomplete="off" style="flex:1;min-width:180px;background:#161616;border:1.5px solid rgba(255,255,255,.12);border-radius:12px;padding:1rem 1.25rem;font-family:'IBM Plex Mono';font-weight:600;font-size:1.25rem;letter-spacing:.12em;color:#FAFAF8;text-transform:uppercase;text-align:center;transition:border-color .25s ease,box-shadow .25s ease;outline:none">
+      <button id="analyze2" class="cta" style="background:#FF6B35;color:#fff;font-family:'Outfit';font-weight:700;font-size:1.05rem;padding:1rem 1.75rem;border:none;border-radius:12px;cursor:pointer;box-shadow:0 8px 28px rgba(255,107,53,.4);transition:filter .25s ease,transform .2s ease;white-space:nowrap">Analizar mi auto gratis →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer style="padding:2.5rem clamp(1.5rem,5vw,2rem);border-top:1px solid rgba(255,255,255,.08)">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:1.25rem;align-items:center;justify-content:space-between">
+    <div style="display:flex;align-items:center;gap:.5rem;color:#FAFAF8;font-family:'Outfit';font-weight:800;font-size:1.2rem">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:#FF6B35;border-radius:7px;color:#fff;font-size:.9rem;line-height:1">G</span>
+      Ruta<span style="color:#FF6B35">G</span>
+    </div>
+    <div style="display:flex;gap:1.75rem;flex-wrap:wrap">
+      <a href="https://axiomlabs.cl/terminos.html" class="flink" style="color:#A0A0A0;font-size:.9rem">Términos</a>
+      <a href="https://axiomlabs.cl/privacidad.html" class="flink" style="color:#A0A0A0;font-size:.9rem">Privacidad</a>
+      <a href="mailto:contacto@axiomlabs.cl" class="flink" style="color:#A0A0A0;font-size:.9rem">Contacto</a>
+    </div>
+    <div style="font-family:'IBM Plex Mono';font-size:.8rem;color:#5a5a5a">© 2026 Ruta G · un producto de <a href="https://axiomlabs.cl" style="color:#5a5a5a;text-decoration:underline">Axiom Labs SpA</a></div>
+  </div>
+</footer>
+
+</div>
+
+<script>
+// ── Patente → app (acepta formato nuevo BBBB·12 y antiguo BB·1234) ──────────
+function fmtPlate(raw) {
+  var clean = (raw || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 6);
+  var m = clean.match(/^([A-Z]{0,4})([0-9]{0,4})/) || ['', '', ''];
+  return m[2] ? m[1] + '·' + m[2] : m[1];
+}
+function goApp(v) {
+  var clean = (v || '').replace(/[^A-Z0-9]/gi, '').toUpperCase();
+  window.location.href = 'https://app.rutag.cl/' + (clean ? 'register-vehicle?plate=' + encodeURIComponent(clean) : '');
+}
+[['plate1', 'analyze1'], ['plate2', 'analyze2']].forEach(function (par) {
+  var inp = document.getElementById(par[0]);
+  var btn = document.getElementById(par[1]);
+  inp.addEventListener('input', function () { inp.value = fmtPlate(inp.value); });
+  inp.addEventListener('keydown', function (e) { if (e.key === 'Enter') goApp(inp.value); });
+  btn.addEventListener('click', function () { goApp(inp.value); });
+});
+
+// ── FAQ acordeón (una abierta a la vez; la primera parte abierta) ────────────
+var FAQS = [
+  { q: '¿Cuánto cuesta usar Ruta G?', a: 'Nada. Ingresar tu patente, ver la mantención recomendada y comparar talleres es gratis. Pagas solo el servicio que elijas, directo al taller.' },
+  { q: '¿Qué pasa si mi auto no aparece?', a: 'Puedes ingresar marca, modelo y año manualmente. Igual te mostramos la mantención recomendada según el manual del fabricante.' },
+  { q: '¿De dónde salen las recomendaciones?', a: 'De los manuales técnicos oficiales de cada fabricante, según el kilometraje y modelo de tu auto. No usamos estimaciones genéricas.' },
+  { q: '¿Puedo confiar en los precios estimados?', a: 'Son valores referenciales de mercado. El taller confirma el precio final antes de que aceptes, así que decides con toda la información.' },
+  { q: '¿Necesito descargar una app?', a: 'No. Ruta G funciona completo desde el navegador de tu celular, sin instalar nada.' },
+  { q: '¿Cómo sé que los talleres son confiables?', a: 'Cada taller pasa una verificación y solo aparece con los servicios que realmente realiza, con su porcentaje de compatibilidad con tu auto.' }
+];
+var faqList = document.getElementById('faq-list');
+FAQS.forEach(function (f, i) {
+  var item = document.createElement('div');
+  item.className = 'faq-item' + (i === 0 ? ' open' : '');
+  item.style.cssText = 'border-bottom:1px solid rgba(255,255,255,.1)';
+  item.innerHTML =
+    '<button style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.5rem 0;background:none;border:none;cursor:pointer;text-align:left">' +
+      '<span style="font-family:\'Outfit\';font-weight:700;font-size:1.1rem;color:#FAFAF8">' + f.q + '</span>' +
+      '<span class="faq-chev"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span>' +
+    '</button>' +
+    '<div class="faq-panel"><p style="margin:0;padding-bottom:1.5rem;color:#A0A0A0;font-size:1.02rem;line-height:1.6;max-width:40rem">' + f.a + '</p></div>';
+  item.querySelector('button').addEventListener('click', function () {
+    var estaba = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function (o) { o.classList.remove('open'); });
+    if (!estaba) item.classList.add('open');
+  });
+  faqList.appendChild(item);
+});
+</script>
+
 </body>
 </html>
